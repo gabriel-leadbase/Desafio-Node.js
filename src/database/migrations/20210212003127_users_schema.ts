@@ -6,6 +6,7 @@ export async function up(knex: Knex): Promise<void> {
     table.string('name');
     table.string('cpf');
     table.string('password');
+    table.boolean('is_admin').defaultTo(false);
     table.timestamps();
   });
 }

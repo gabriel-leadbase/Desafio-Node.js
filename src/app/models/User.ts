@@ -4,11 +4,14 @@ import {
   BeforeInsert,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn
+  UpdateDateColumn,
+  ManyToMany,
+  JoinTable
 } from 'typeorm';
 
 import { v4 as uuidv4 } from 'uuid';
 import Hash from '../services/Hash';
+import { Permission } from './Permission';
 
 @Entity('users')
 export class User {
@@ -51,4 +54,13 @@ export class User {
   async generateHash() {
     this.password = await Hash.generate(this.password);
   }
+
+  // Relationships
+  @ManyToMany(() => Permission, (permission) => permission.users)
+  @JoinTable({
+    name: 'user_permission',
+    joinColumns: [{ name: 'user_id' }],
+    inverseJoinColumns: [{ name: 'permission_id' }]
+  })
+  permissions!: Permission[];
 }
