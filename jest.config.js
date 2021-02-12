@@ -5,6 +5,6 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ['<rootDir>/app/controllers/**/*.ts'],
   coverageDirectory: '<rootDir>/tests/coverage/functionals',
-  testMatch: ['<rootDir>/tests/functionals/**/*.test.ts'],
+  testMatch: ['<rootDir>/tests/**/*.test.ts'],
   verbose: true
 };

@@ -9,9 +9,11 @@
     "commit": "cz",
     "build": "tsc",
     "start": "node ./dist/server.js",
-    "dev": "NODE_ENV=development nodemon ./src/server.ts",
-    "test": "NODE_ENV=testing jest --runInBand",
-    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
+    "dev:server": "NODE_ENV=development nodemon ./src/server.ts",
+    "test:server": "NODE_ENV=testing jest --runInBand",
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+    "dev:migrations": "yarn knex migrate:rollback --all --env=development && yarn knex migrate:latest --env=development && yarn knex seed:run --env=development",
+    "test:migrations": "yarn knex migrate:rollback --all --env=testing && yarn knex migrate:latest --env=testing"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -23,6 +25,7 @@
     "@types/express-validator": "^3.0.0",
     "@types/helmet": "^4.0.0",
     "@types/jsonwebtoken": "^8.5.0",
+    "@types/knex": "^0.16.1",
     "@types/pg": "^7.14.9",
     "@types/supertest": "^2.0.10",
     "@types/uuid": "^8.3.0",
@@ -51,7 +54,9 @@
     "express-validator": "^6.9.2",
     "helmet": "^4.4.1",
     "jsonwebtoken": "^8.5.1",
+    "knex": "^0.21.17",
     "pg": "^8.5.1",
+    "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.31",
     "uuid": "^8.3.2"
   },
