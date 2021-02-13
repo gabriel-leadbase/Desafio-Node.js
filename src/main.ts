@@ -10,4 +10,4 @@ const port = Port;
 app.use(express.json());
 app.use(routes)
 
-app.listen(3000)
+app.listen(Port)

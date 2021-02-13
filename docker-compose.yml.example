@@ -1,19 +1,6 @@
 version: '3'
 
 services:
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - '3333:3333'
-    container_name: api
-    restart: always
-    volumes:
-      - .:/usr/src/node-api/
-    depends_on:
-      - db_api
-
   db_api:
     image: postgres:alpine
     ports:

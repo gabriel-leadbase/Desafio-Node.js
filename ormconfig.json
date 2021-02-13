@@ -5,14 +5,16 @@
     "username": "pguser",
     "password": "backend",
     "database": "api",
-    "synchronize": false,
     "entities": [
        "src/app/models/*.ts"
     ],
     "migrations": [
        "src/db/migrations/*.ts"
     ],
-    "cli": {
-        "migrationsDir": "src/db/migrations"
-    }
+    "cli":{
+      "migrationsDir": [
+        "src/db/migrations/"
+      ],
+      "entitiesDir": "src/app/models"
+      }
  }

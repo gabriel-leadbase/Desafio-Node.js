@@ -16,12 +16,12 @@
 [x] -> register user
 [x] -> login
 [x] -> return jwt token
-[] -> return token + user data
-[] -> create migration permissions
-[] -> added foreing key userId in permissions
-[] -> create controller permissions
-[] -> create model to permissions
-[] -> create route permissions
-[] -> verify role to create permissions
-[] -> return token + user data and permissions
+[x] -> return token + user data
+[x] -> create migration permissions
+[x] -> added foreing key userId in permissions
+[x] -> create controller permissions
+[x] -> create model to permissions
+[x] -> create route permissions
+[x] -> verify role to create permissions
+[x] -> return token + user data and permissions
 
