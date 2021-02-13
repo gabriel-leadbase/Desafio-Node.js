@@ -49,3 +49,26 @@ MVC por simplecidade em pequenos projetos
 Singleton para haver apenas uma instancia de cada classe
 ```
 
+# Insomina requests
+```bash
+#Os arquivos do postman ficaram na pasta requests
+
+Rota post: http://localhost:3000/register
+json: 
+{
+	"cpf":"123",
+	"password": "123",
+    #ou role: "user"
+	"role": "admin"
+}
+
+Rota post: http://localhost:3333/login
+json:
+{
+    "cpf":"123",
+	"password": "123"
+}
+
+```
+
+

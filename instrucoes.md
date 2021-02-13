@@ -38,7 +38,7 @@ $ yarn run typeormCli migration:run
 $ yarn run start:dev
 
 ```
-                                                
+                                             
 # Documentação está no aqruivo documentation.md 
 
 # Para contato

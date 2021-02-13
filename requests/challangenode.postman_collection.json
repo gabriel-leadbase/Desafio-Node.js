@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "e270aca7-ffc3-48cc-b260-be26ffddde1c",
+		"name": "challangenode",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3333/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"cpf\":\"6666\",\r\n\t\"password\": \"adsdasdas\",\r\n\t\"role\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3333/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"cpf\":\"6666\",\r\n\t\"password\": \"adsdasdas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3333/permission",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkwYTc0YTI3LTA2MDgtNDFlOC1hMDlhLWRiZTYwYTczMGQ3ZCIsImNwZiI6IjY2NjYiLCJpYXQiOjE2MTMyNDI2ODMsImV4cCI6MTYxMzMyOTA4M30.lr-MU3xb3xzuOVw8Au52GpwLz-RuD9aIX5PYO1RqAnY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"teste666\",\r\n    \"user\": {\r\n\t\t\"id\": \"d997a8e5-5129-4df9-bd65-3f6416b708f1\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/permission",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"permission"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3333/permission/update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkwYTc0YTI3LTA2MDgtNDFlOC1hMDlhLWRiZTYwYTczMGQ3ZCIsImNwZiI6IjY2NjYiLCJpYXQiOjE2MTMyNDI2ODMsImV4cCI6MTYxMzMyOTA4M30.lr-MU3xb3xzuOVw8Au52GpwLz-RuD9aIX5PYO1RqAnY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"teste666\",\r\n\t\"newName\": \"testetestando\",\r\n    \"user\": {\r\n            \"id\": \"90a74a27-0608-41e8-a09a-dbe60a730d7d\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/permission/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"permission",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3333/permission/delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkwYTc0YTI3LTA2MDgtNDFlOC1hMDlhLWRiZTYwYTczMGQ3ZCIsImNwZiI6IjY2NjYiLCJpYXQiOjE2MTMyNDI2ODMsImV4cCI6MTYxMzMyOTA4M30.lr-MU3xb3xzuOVw8Au52GpwLz-RuD9aIX5PYO1RqAnY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"testetestando\",\r\n    \"user\": {\r\n            \"id\": \"90a74a27-0608-41e8-a09a-dbe60a730d7d\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/permission/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"permission",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
