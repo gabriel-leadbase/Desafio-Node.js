@@ -43,3 +43,9 @@ O jsonwebtoken é uma lib a qual já utilizei em pequenos projetos.
 Typescript foi escolhido também pela minha afinadade em utilizar linguagem tipadas e auxiliar no desenvolvimento mais agíl.
 ```
 
+# Pattern utilizados
+```
+MVC por simplecidade em pequenos projetos
+Singleton para haver apenas uma instancia de cada classe
+```
+
