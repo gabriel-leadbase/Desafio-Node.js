@@ -1,0 +1,18 @@
+{
+    "type": "postgres",
+    "host": "db_api",
+    "port": 5432,
+    "username": "pguser",
+    "password": "backend",
+    "database": "api",
+    "synchronize": false,
+    "entities": [
+       "src/app/models/*.ts"
+    ],
+    "migrations": [
+       "src/db/migrations/*.ts"
+    ],
+    "cli": {
+        "migrationsDir": "src/db/migrations"
+    }
+ }
