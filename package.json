@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "typeormCli": "node --require ts-node/register ./node_modules/typeorm/cli.js",
-    "start:dev": "npx nodemon --exec ts-node src/main.ts"
+    "start:dev": "npx nodemon --exec ts-node --files src/main.ts"
   },
   "repository": "https://github.com/piassa157/Desafio-Node.js.git",
   "author": "piassa157 <lindaum98@gmail.com>",
@@ -13,6 +13,7 @@
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/express": "^4.17.11",
+    "@types/jsonwebtoken": "^8.5.0",
     "@types/node": "^14.14.27",
     "nodemon": "^2.0.7",
     "ts-node": "^9.1.1",
@@ -21,6 +22,7 @@
   "dependencies": {
     "bcrypt": "^5.0.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.31"
