@@ -1,6 +1,6 @@
 {
     "type": "postgres",
-    "host": "db_api",
+    "host": "localhost",
     "port": 5432,
     "username": "pguser",
     "password": "backend",

@@ -1,0 +1,13 @@
+# Todo list
+
+```php
+
+[x] -> Pattern 
+[x] -> BD
+[x] -> Docker
+[x] -> libs
+[x] -> controllers
+[x] -> models
+[x] -> routes
+
+```
