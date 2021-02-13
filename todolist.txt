@@ -1,6 +1,6 @@
 # Todo list
 
-```php
+## project structure
 
 [x] -> Pattern 
 [x] -> BD
@@ -9,5 +9,19 @@
 [x] -> controllers
 [x] -> models
 [x] -> routes
+[x] -> middleware
 
-```
+## project functions
+
+[x] -> register user
+[x] -> login
+[x] -> return jwt token
+[] -> return token + user data
+[] -> create migration permissions
+[] -> added foreing key userId in permissions
+[] -> create controller permissions
+[] -> create model to permissions
+[] -> create route permissions
+[] -> verify role to create permissions
+[] -> return token + user data and permissions
+
