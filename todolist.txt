@@ -1,0 +1,27 @@
+# Todo list
+
+## project structure
+
+[x] -> Pattern 
+[x] -> BD
+[x] -> Docker
+[x] -> libs
+[x] -> controllers
+[x] -> models
+[x] -> routes
+[x] -> middleware
+
+## project functions
+
+[x] -> register user
+[x] -> login
+[x] -> return jwt token
+[x] -> return token + user data
+[x] -> create migration permissions
+[x] -> added foreing key userId in permissions
+[x] -> create controller permissions
+[x] -> create model to permissions
+[x] -> create route permissions
+[x] -> verify role to create permissions
+[x] -> return token + user data and permissions
+

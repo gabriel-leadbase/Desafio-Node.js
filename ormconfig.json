@@ -1,0 +1,20 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "pguser",
+    "password": "backend",
+    "database": "api",
+    "entities": [
+       "src/app/models/*.ts"
+    ],
+    "migrations": [
+       "src/db/migrations/*.ts"
+    ],
+    "cli":{
+      "migrationsDir": [
+        "src/db/migrations/"
+      ],
+      "entitiesDir": "src/app/models"
+      }
+ }
