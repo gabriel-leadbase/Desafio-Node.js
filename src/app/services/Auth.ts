@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import jwtConfig from '../../config/jwt';
+import { ThirtyResponseError } from '../../core/ResponseError';
 
 export default class Auth {
   public config;
@@ -20,16 +21,9 @@ export default class Auth {
     return token;
   }
 
-  public verify(token: string): string | object {
-    try {
-      const { data } = <any>jwt.verify(token, this.config.key);
+  public verify(token: string): string {
+    const { data } = <any>jwt.verify(token, this.config.key);
 
-      return data;
-    } catch (err) {
-      return {
-        error: true,
-        message: err.message
-      };
-    }
+    return data;
   }
 }

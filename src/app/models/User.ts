@@ -25,6 +25,9 @@ export class User {
   @Column('varchar')
   cpf!: string;
 
+  @Column({ type: 'boolean', name: 'is_admin' })
+  isAdmin!: boolean;
+
   @Column('varchar')
   password!: string;
 
