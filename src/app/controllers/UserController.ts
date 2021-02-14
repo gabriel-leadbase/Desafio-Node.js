@@ -86,8 +86,9 @@ class UserController {
       return response.status(200).json({
         id: user?.id,
         name: user?.name,
+        cpf: user?.cpf,
         isAdmin: user?.isAdmin,
-        createdAt: user?.createdAt,
+        createdAt: user?.createdAt.toISOString(),
         permissions: user?.permissions
       });
     } catch (err) {

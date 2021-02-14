@@ -11,7 +11,7 @@ export const checkJwt = async (
   const header: string | undefined = request.header('authorization');
 
   if (!header) {
-    return response.status(400).json({
+    return response.status(401).json({
       error: {
         code: '098',
         message: 'Usuário sem permissão de acesso.'
@@ -22,7 +22,7 @@ export const checkJwt = async (
   const [, token]: string[] = header.split(' ');
 
   if (!token) {
-    return response.status(400).json({
+    return response.status(401).json({
       error: {
         code: '099',
         message: 'Usuário sem permissão de acesso.'
