@@ -41,7 +41,9 @@ class SessionController {
 
       const token = await new Auth().sign(userExists.id);
 
-      return response.status(200).json({ userId: userExists.id, token });
+      return response
+        .status(200)
+        .json({ userId: userExists.id, token, isAdmin: userExists.isAdmin });
     } catch (err) {
       /* istanbul ignore next */
       return response.status(400).json({

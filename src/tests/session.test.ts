@@ -87,6 +87,11 @@ describe('POST /sessions', () => {
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('userId');
     expect(response.body).toHaveProperty('token');
+    expect(response.body).toHaveProperty('isAdmin');
     expect(response.body.userId).toBe(user.id);
+    expect(response.body).toMatchObject({
+      userId: user.id,
+      isAdmin: false
+    });
   });
 });
