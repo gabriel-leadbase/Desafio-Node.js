@@ -3,9 +3,11 @@ import {
   Column,
   PrimaryGeneratedColumn,
   ManyToMany,
-  JoinTable
+  JoinTable,
+  BeforeInsert
 } from 'typeorm';
 import { User } from './User';
+import { v4 as uuidV4 } from 'uuid';
 
 @Entity('permissions')
 export class Permission {
@@ -15,6 +17,12 @@ export class Permission {
 
   @Column('varchar')
   name!: string;
+
+  // Hooks
+  @BeforeInsert()
+  generateUuid() {
+    this.id = uuidV4();
+  }
 
   // Relationships
   @ManyToMany(() => User, (user) => user.permissions)
