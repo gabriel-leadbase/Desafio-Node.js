@@ -1,58 +1,25 @@
-# Desafio para desenvolvedor back-end
+# Como configurar e rodar
 
-Esse é o nosso desafio para a vaga de desenvolvedor back-end. Serão testadas as habilidades e qualidade de código ao transformar requisitos limitados em uma API Rest.
+No arquivo `.env.example` na variável `DB_URI` É necessário adicionar uma uri com uma conexão a um banco de dados mongodb.
 
-Procuramos um desenvolvedor versátil para resolver os mais diversos problemas, que impactam tanto nos processos internos como nos negocios dos nossos clientes, utilizando conhecimento em tecnologias front-end como meio para isso. Sinta-se confortável com ambas responsabilidades e seja engajado com o que há de melhor no mercado e boas práticas para trabalhar com inovação, tecnologias modernas e emergentes.
+Na variável `DB_URI` ainda no arquivo `.env.example` será necessário adicionar uma chave de sua preferência para aplicação.
 
+Instalando as dependências
 
-### Qual perfil procuramos?
-- Perfil proativo, saber trabalhar em equipe , raciocínio lógico, responsabilidade e comprometimento são imprescindíveis para essa oportunidade;
-- Fácil adaptação em projetos experimentais e complexos;
-- Aprendizado rápido no uso de tecnologias de desenvolvimento de software;
-- Experiência em Desenvolvimento de software Web.
+dentro da pasta `cd Desafio-Node.js` execute o comando `Npm install`
 
+depois é só rodar o comando `node app` e a aplicação estará rodando.
 
+Para ter acesso as rotas protegidas é necessário criar um usuário (casa não tenha nenhuma usuário no banco o primeiro a ser criado será administrador).
 
-### Instruções para o desafio
+`/users` | `POST`
+exemplo:
 
-- **Fork** esse repositório e faça o desafio numa branch com o seu nome (exemplo: `nome-sobrenome`);
-- Assim que concluir o seu desafio, abra um **pull request** com suas alterações.
+{
+  "cpf": "00000000",
+  "password": "suasenha"
+}
 
+Os demais usuário serão cadastrados com o tipo vendedor.
 
-### Desafio
-- Montar um projeto em Node.js, com a função de fazer Autenticação e autorização de usuários. 
-
-A seguir vou descrever a história de usuário da funcionalidade:
-
-O processo se dá onde um usuário pode enviar seu CPF e uma senha para a API e realizar login na plataforma, recebendo assim um token de acesso contendo seus dados e sua role e suas permissões, feito login, existem dois casos:
-  1. se ele for administrador ele pode usar seu token para acessar uma rota para remover uma permissão (enviando o nome dessa permissão) ou adicionar uma permissão (enviando o nome dessa permissão).
-  2. se ele for vendedor não terá acesso a nenhuma rota.
-
-Lembre de documentar as rotas no Postman e adicionar o export JSON ao projeto.
-Fique livre para montar token de acesso com o recurso/criptografia que desejar.
-
-
-### Escopo do desafio
-- Documentar todas suposições realizadas;
-- O desenvolvimento do back-end deve ser em Node.js;
-- Não é necessário submeter uma aplicação que cumpra cada um dos requisitos descritos, mas o que for submetido deve funcionar;
-- Informar em um arquivo INSTRUCOES.md o passo a passo necessário para rodar o projeto juntamente com o descritivo das funcionalidades que foram atentidas no desafio.
-
-
-### O que será avaliado
-- O código será avaliado seguindo os seguintes critérios: manutenabilidade, clareza e limpeza de código; resultado funcional; entre outros fatores;
-- O histórico no `git` também será avaliado;
-- Não esqueça de documentar o processo necessário para rodar a aplicação;
-- Se necessário explique as decisões técnicas tomadas, as escolhas por bibliotecas e ferrramentas, o uso de patterns etc.
-
-
-### Diferenciais
-- Tratamento de erros
-- Docker
-- Boa documentação de código;
-- Testes do código.
-
----
-Em caso de dúvidas, envie um email para [gabriel@leadbase.com.br](mailto:gabriel@leadbase.com.br).
-
-**Até breve**
+O usuário administrador terá acesso a todas as rotas e poderá alterar as permissões de outros usuários.
