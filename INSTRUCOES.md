@@ -79,3 +79,40 @@ curl -X DELETE -H "Content-Type: application/json" \
  -d '{"name":"VISUALIZAR"}' \
  http://localhost:3333/users/ae2598a1-51c9-44f1-ab1d-f764ebf3c16c/permissions
 ```
+
+## Frameworks e bibliotecas utilizadas
+
+**Framework para manipulação de requests**
+
+- Express
+
+**Padronização e Automação de Commit**
+
+- Commitzen
+- Commitlint
+
+**Testes**
+
+- Jest
+- Supertest
+
+**Banco de Dados**
+
+- Knex
+- UUID
+- TypeORM
+- Postgres (PG)
+- Bcrypt
+
+**Middleware**
+
+- JWT (Json web token)
+- Express-Validator
+- CORS
+- Helmet
+
+O projeto todo foi construído sob o framework mais conhecido pela comunidade NodeJS, o [Express](http://expressjs.com/pt-br/), por ser simples, rápido e robusto, muito adquiridos pelos desenvolvedores, outro framework que também foi implementado para testes, foi o [Jest](https://jestjs.io/docs/en/getting-started), que possui uma documentação completa para testar a sua aplicação, encontrar diversos e pequenos bugs onde sua equipe pode dormir em paz ao final do expediente rsrs...
+
+A parte de banco de dados, utilizei o famoso framework [TypeORM](https://typeorm.io/#/), já que o projeto foi desenvolvido utilizando Typescript, logo, ele foi uma chave fundamental para conexão com o Postgres DB, já que o ORM totalmente tipado. Um padrão de projeto (Design Pattern) foi utilizado para conexão de dados, o _Singleton_, onde o objeto seria uma única instância na aplicação. A parte de criptografação dos dados mais sensíveis, foi utilizado Bcrypt, e a indexação de dados (ID) com o UUID por questões de segurança.
+
+E por fim, em questões de segurança da aplicação, foi implementado nos middlewares os pacotes mais conhecido e utilizado pela comunidade como: CORS, Helmet, validação de request com o [Express-Validator](https://express-validator.github.io/docs/), e a autenticação com [JWT](https://github.com/auth0/node-jsonwebtoken#readme)

@@ -1,0 +1,542 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "237c7aef-d07e-4881-9777-c7a5a08e9e04",
+			"name": "Desafio NodeJS",
+			"description": "",
+			"auth": {
+				"type": "bearer",
+				"bearer": []
+			},
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "163065fe-185a-49e6-863b-367a9dbe2932",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1eac477-aeaa-4a8f-a56a-af88cde3b080",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"variables": [
+				{
+					"key": "token",
+					"value": "",
+					"disabled": false
+				},
+				{
+					"key": "baseUrl",
+					"value": "http://localhost:3333",
+					"disabled": false
+				}
+			],
+			"order": [],
+			"folders_order": [
+				"af87fed6-e8b3-4581-b9a2-e8c246b4ceab",
+				"c9866d6b-4ea5-4de3-8adc-384dff9b20b9",
+				"718197b8-ecaa-415d-b2aa-cbc9aa19130a"
+			],
+			"protocolProfileBehavior": {},
+			"folders": [
+				{
+					"id": "af87fed6-e8b3-4581-b9a2-e8c246b4ceab",
+					"name": "Session",
+					"description": "",
+					"auth": null,
+					"events": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a13f25f0-f9c4-4791-b10c-c4a175293c9d",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "5b1a7aa4-5921-45c1-97f9-e110498b2e90",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"collection": "237c7aef-d07e-4881-9777-c7a5a08e9e04",
+					"folder": null,
+					"order": [
+						"eed24772-b32f-44f7-85d7-9498b4e8bde4"
+					],
+					"folders_order": [],
+					"protocolProfileBehavior": {},
+					"collectionId": "237c7aef-d07e-4881-9777-c7a5a08e9e04",
+					"folderId": "af87fed6-e8b3-4581-b9a2-e8c246b4ceab"
+				},
+				{
+					"id": "718197b8-ecaa-415d-b2aa-cbc9aa19130a",
+					"name": "User Permissions",
+					"description": "",
+					"auth": null,
+					"events": null,
+					"collection": "237c7aef-d07e-4881-9777-c7a5a08e9e04",
+					"folder": null,
+					"order": [
+						"82c2d5cb-7ac7-4eff-9128-1f9f33725eda",
+						"02048fc3-69b1-4e2e-9038-d05918ae1dc5"
+					],
+					"folders_order": [],
+					"protocolProfileBehavior": {},
+					"collectionId": "237c7aef-d07e-4881-9777-c7a5a08e9e04",
+					"folderId": "718197b8-ecaa-415d-b2aa-cbc9aa19130a"
+				},
+				{
+					"id": "c9866d6b-4ea5-4de3-8adc-384dff9b20b9",
+					"name": "Users",
+					"description": "",
+					"auth": null,
+					"events": null,
+					"collection": "237c7aef-d07e-4881-9777-c7a5a08e9e04",
+					"folder": null,
+					"order": [
+						"8b1a3145-6c14-483b-a79e-4218e65d287b",
+						"3ab02a40-4c83-433c-8070-8a9d33589ab1",
+						"34feaf7f-c430-4445-92d4-e3d741c0e471"
+					],
+					"folders_order": [],
+					"protocolProfileBehavior": {},
+					"collectionId": "237c7aef-d07e-4881-9777-c7a5a08e9e04",
+					"folderId": "c9866d6b-4ea5-4de3-8adc-384dff9b20b9"
+				}
+			],
+			"requests": [
+				{
+					"id": "02048fc3-69b1-4e2e-9038-d05918ae1dc5",
+					"name": "Destroy",
+					"url": "{{baseUrl}}/users/ae2598a1-51c9-44f1-ab1d-f764ebf3c16c/permissions",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "DELETE",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": "718197b8-ecaa-415d-b2aa-cbc9aa19130a",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "237c7aef-d07e-4881-9777-c7a5a08e9e04",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "34feaf7f-c430-4445-92d4-e3d741c0e471",
+					"name": "Show",
+					"url": "{{baseUrl}}/users/ae2598a1-51c9-44f1-ab1d-f764ebf3c16c",
+					"description": "Fetching all users",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiMjVjNDVjMjctMTI2MC00ZWE3LTg5YWItY2E1Nzg3M2RkNmQyIiwiaWF0IjoxNjEzMzQyNTY1LCJleHAiOjE2MTMzNDYxNjV9.xibulC0DyduqvSDUjilpqVt95--HQixpAAJL4l9J0mg"
+							}
+						]
+					},
+					"events": [],
+					"folder": "c9866d6b-4ea5-4de3-8adc-384dff9b20b9",
+					"responses": [
+						{
+							"id": "eca1de60-4af8-473d-a934-7fa275f222f8",
+							"name": "List all users",
+							"status": null,
+							"mime": null,
+							"language": "json",
+							"text": "{\n    \"list\": [\n        {\n            \"id\": \"25c45c27-1260-4ea7-89ab-ca57873dd6d2\",\n            \"name\": \"Bento Cauã Campos\",\n            \"createdAt\": \"2021-02-12T22:38:37.855Z\",\n            \"permissions\": [\n                {\n                    \"id\": \"45b90cbd-b4f6-411a-add5-82ecef8ee8c4\",\n                    \"name\": \"VISUALIZAR\"\n                },\n                {\n                    \"id\": \"cb7fd944-076b-4257-87ce-42c39ddaf0a1\",\n                    \"name\": \"EDITAR\"\n                },\n                {\n                    \"id\": \"230b5b65-9568-4563-a667-a0fb44e3caff\",\n                    \"name\": \"CRIAR\"\n                },\n                {\n                    \"id\": \"12cab234-4665-463a-bff3-2d8c2a40d2a0\",\n                    \"name\": \"EXCLUIR\"\n                }\n            ]\n        },\n        {\n            \"id\": \"ae2598a1-51c9-44f1-ab1d-f764ebf3c16c\",\n            \"name\": \"Juliana Débora Malu Aragão\",\n            \"createdAt\": \"2021-02-12T22:38:37.855Z\",\n            \"permissions\": [\n                {\n                    \"id\": \"45b90cbd-b4f6-411a-add5-82ecef8ee8c4\",\n                    \"name\": \"VISUALIZAR\"\n                }\n            ]\n        }\n    ]\n}",
+							"responseCode": {
+								"code": 200,
+								"name": "OK"
+							},
+							"requestObject": {
+								"data": null,
+								"dataMode": null,
+								"dataOptions": null,
+								"headerData": [],
+								"method": "GET",
+								"pathVariableData": [],
+								"queryParams": [],
+								"url": "{{baseUrl}}/users"
+							},
+							"headers": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "596"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"254-ePdlRjuAgvrffmqpwPxsmU/eymE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Feb 2021 23:09:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookies": null,
+							"request": "34feaf7f-c430-4445-92d4-e3d741c0e471",
+							"collection": "237c7aef-d07e-4881-9777-c7a5a08e9e04"
+						}
+					],
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiMjVjNDVjMjctMTI2MC00ZWE3LTg5YWItY2E1Nzg3M2RkNmQyIiwiaWF0IjoxNjEzMzQyNTY1LCJleHAiOjE2MTMzNDYxNjV9.xibulC0DyduqvSDUjilpqVt95--HQixpAAJL4l9J0mg"
+					},
+					"collectionId": "237c7aef-d07e-4881-9777-c7a5a08e9e04",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "3ab02a40-4c83-433c-8070-8a9d33589ab1",
+					"name": "Store",
+					"url": "{{baseUrl}}/users",
+					"description": "Create a new user",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": "c9866d6b-4ea5-4de3-8adc-384dff9b20b9",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "237c7aef-d07e-4881-9777-c7a5a08e9e04",
+					"rawModeData": "{\n    \"name\": \"Lucio Flavio\",\n    \"cpf\": \"39030932899\",\n    \"password\": \"123123\"\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "82c2d5cb-7ac7-4eff-9128-1f9f33725eda",
+					"name": "Store",
+					"url": "{{baseUrl}}/users/ae2598a1-51c9-44f1-ab1d-f764ebf3c16c/permissions",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiMjVjNDVjMjctMTI2MC00ZWE3LTg5YWItY2E1Nzg3M2RkNmQyIiwiaWF0IjoxNjEzMzQyNTY1LCJleHAiOjE2MTMzNDYxNjV9.xibulC0DyduqvSDUjilpqVt95--HQixpAAJL4l9J0mg"
+							}
+						]
+					},
+					"events": [],
+					"folder": "718197b8-ecaa-415d-b2aa-cbc9aa19130a",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiMjVjNDVjMjctMTI2MC00ZWE3LTg5YWItY2E1Nzg3M2RkNmQyIiwiaWF0IjoxNjEzMzQyNTY1LCJleHAiOjE2MTMzNDYxNjV9.xibulC0DyduqvSDUjilpqVt95--HQixpAAJL4l9J0mg"
+					},
+					"collectionId": "237c7aef-d07e-4881-9777-c7a5a08e9e04",
+					"rawModeData": "{\n    \"name\": \"CRIAR\"\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "8b1a3145-6c14-483b-a79e-4218e65d287b",
+					"name": "Index",
+					"url": "{{baseUrl}}/users",
+					"description": "Fetching all users",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiMjVjNDVjMjctMTI2MC00ZWE3LTg5YWItY2E1Nzg3M2RkNmQyIiwiaWF0IjoxNjEzMzQyNTY1LCJleHAiOjE2MTMzNDYxNjV9.xibulC0DyduqvSDUjilpqVt95--HQixpAAJL4l9J0mg"
+							}
+						]
+					},
+					"events": [],
+					"folder": "c9866d6b-4ea5-4de3-8adc-384dff9b20b9",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiMjVjNDVjMjctMTI2MC00ZWE3LTg5YWItY2E1Nzg3M2RkNmQyIiwiaWF0IjoxNjEzMzQyNTY1LCJleHAiOjE2MTMzNDYxNjV9.xibulC0DyduqvSDUjilpqVt95--HQixpAAJL4l9J0mg"
+					},
+					"collectionId": "237c7aef-d07e-4881-9777-c7a5a08e9e04",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "eed24772-b32f-44f7-85d7-9498b4e8bde4",
+					"name": "Store",
+					"url": "{{baseUrl}}/sessions",
+					"description": "Create a new session",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a38e6c84-b7b5-469f-bdfe-d976de3015cf",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "af87fed6-e8b3-4581-b9a2-e8c246b4ceab",
+					"responses": [
+						{
+							"id": "a96156cc-b1f7-4598-8453-7e5bd0520e68",
+							"name": "Sending all required parameters when user exists",
+							"status": null,
+							"mime": null,
+							"language": "json",
+							"text": "{\n    \"userId\": \"25c45c27-1260-4ea7-89ab-ca57873dd6d2\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiMjVjNDVjMjctMTI2MC00ZWE3LTg5YWItY2E1Nzg3M2RkNmQyIiwiaWF0IjoxNjEzMTcwNTg1LCJleHAiOjE2MTMxNzQxODV9.1VsEHVqU6tdN08K5xjLmC--X_oUaKF0vLoYJkVz8ABE\"\n}",
+							"responseCode": {
+								"code": 200,
+								"name": "OK"
+							},
+							"requestObject": {
+								"data": [],
+								"dataMode": "raw",
+								"dataOptions": {
+									"raw": {
+										"language": "json"
+									}
+								},
+								"headerData": [],
+								"method": "POST",
+								"pathVariableData": [],
+								"queryParams": [],
+								"url": "{{baseUrl}}/sessions",
+								"rawModeData": "{\n    \"cpf\": \"56912833675\",\n    \"password\": \"123123\"\n}"
+							},
+							"headers": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "249"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f9-J/vyZrVle5QCCwp3+dQRddLv+Pg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Feb 2021 22:56:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookies": null,
+							"request": "eed24772-b32f-44f7-85d7-9498b4e8bde4",
+							"collection": "237c7aef-d07e-4881-9777-c7a5a08e9e04"
+						}
+					],
+					"preRequestScript": null,
+					"tests": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "237c7aef-d07e-4881-9777-c7a5a08e9e04",
+					"rawModeData": "{\n    \"cpf\": \"56912833675\",\n    \"password\": \"123123\"\n}",
+					"headers": "",
+					"pathVariables": {}
+				}
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "70b1c376-5592-45c0-8fe7-ffeb99de9857",
+			"name": "Teste Backend NodeJS",
+			"values": [
+				{
+					"key": "baseUrl",
+					"value": "http://localhost:3333",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "6e9c2354-df18-41f4-ac95-11808d5a3607",
+			"name": "Teste Backend NodeJS - globals",
+			"values": []
+		},
+		{
+			"id": "9fc2a457-30b3-49b8-9add-487c4e2fc485",
+			"name": "Team MVC Code - globals",
+			"values": []
+		}
+	],
+	"headerPresets": [],
+	"globals": []
+}
