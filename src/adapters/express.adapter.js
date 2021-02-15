@@ -1,5 +1,6 @@
 const registerController = require('../controllers/register.controller')
 const loginController = require('../controllers/login.controller')
+const permissionController = require('../controllers/permission.controller')
 
 //adapter que facilita o res.send ja mandando em um objeto json
 
@@ -12,6 +13,9 @@ const adapter = {
           res.status(response.statusCode).json(response.body)
         }else if (fun.includes('user_login')) {
           response = await loginController[fun](req.body)
+          res.status(response.statusCode).json(response.body)
+        }else if (fun.includes('permission')) {
+          response = await permissionController[fun](req.body)
           res.status(response.statusCode).json(response.body)
         }
     }
