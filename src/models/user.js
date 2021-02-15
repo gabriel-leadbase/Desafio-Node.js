@@ -45,7 +45,7 @@ UserSchema.methods = {
   },
 
   generateToken() {
-    let obj = { id: this.id, email: this.email, permission: this.permission, refresh: rand_token.uid(20) }
+    let obj = { id: this.id, cpf: this.cpf, permission: this.permission, refresh: rand_token.uid(20) }
 
     return jwt.sign(obj, process.env.SECRET_SESSION_TOKEN, {
       expiresIn: '4h'
