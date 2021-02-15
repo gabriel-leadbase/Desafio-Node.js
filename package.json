@@ -1,0 +1,30 @@
+{
+  "name": "Desafio-Node.js",
+  "version": "1.0.0",
+  "description": "Esse é o nosso desafio para a vaga de desenvolvedor back-end. Serão testadas as habilidades e qualidade de código ao transformar requisitos limitados em uma API Rest.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raiuri/Desafio-Node.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raiuri/Desafio-Node.js/issues"
+  },
+  "homepage": "https://github.com/raiuri/Desafio-Node.js#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-acl": "^2.0.8",
+    "jslint": "^0.12.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.16",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0"
+  }
+}
