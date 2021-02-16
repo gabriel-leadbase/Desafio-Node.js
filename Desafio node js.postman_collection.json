@@ -1,0 +1,71 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Desafio node js",
+		"_postman_id": "29b408b1-b1c0-cc2c-239a-ba18898a37c2",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"url": "http://localhost:3000/desafio-node.api/user_register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\":\"\",\r\n\t\"cpf\":\"\",\r\n\t\"permission\": \"\",\r\n\t\"password\":\"\" \r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"url": "http://localhost:3000/desafio-node.api/user_login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"cpf\":\"\",\r\n\t\"password\":\"\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "permission",
+			"request": {
+				"url": "http://localhost:3000/desafio-node.api/modify_permission",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\":\"\",\r\n\t\"cpf\":\"\",\r\n\t\"permission\":\"\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
