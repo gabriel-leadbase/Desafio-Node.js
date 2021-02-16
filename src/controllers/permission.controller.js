@@ -2,8 +2,9 @@ const { fetch, update } = require('../adapters/mongoose.adapter')
 const jwt = require('jsonwebtoken')
 const permissionController = {
     async modify_permission(body) {
+        // verifica atravez do token JWT se o usuario é um adm caso afirmativo a função continua
         let response
-        if (body.permission == 'adm' || body.permission == 'sales' ) {
+        if (body.permission == 'adm' || body.permission == 'sales' ) { // verifica se a permissão a ser mudada é aceita no sistema
             await jwt.verify(body.token, process.env.SECRET_SESSION_TOKEN, async(err, dec) => {
                 if (err) {
                     response = {
@@ -25,8 +26,9 @@ const permissionController = {
                     }
                   } else {
                     const user = await fetch('user',{ cpf: body.cpf })
-                    if (user){
-                        const query = await update('user', { permission: body.permission}, { cpf: body.cpf })
+                   
+                    if (user){  // verifica se o usuario a ter a permissão modificada existe
+                        const query = await update('user', { permission: body.permission}, { cpf: body.cpf }) // realiza o update no banco de dados caso o usuario exista e o token seja de um administrador
                         if(query){
                             response = {
                                 statusCode: 200,

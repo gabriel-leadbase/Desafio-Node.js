@@ -1,11 +1,12 @@
 const { fetch } = require('../adapters/mongoose.adapter')
 
 const loginController = {
+  // logica responsavel por validar se o usuario existe e caso afirmativo gerar um JWT
     async user_login(body) {
         let response
-        const user = await fetch('user',{ cpf: body.cpf })
+        const user = await fetch('user',{ cpf: body.cpf }) // busca usuario no banco de dados
         if (user){
-          if (!await user.compareHash(body.password)) {
+          if (!await user.compareHash(body.password)) { // chama a função que compara as senhas
            return response = {
               statusCode: 400,
               body: {
@@ -14,8 +15,7 @@ const loginController = {
               }
             }
           }
-          const token = await user.generateToken()
-  
+          const token = await user.generateToken() // chama a função que gera o token
           if (token) {
             console.log(token)
             response = {

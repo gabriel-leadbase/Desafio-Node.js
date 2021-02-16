@@ -1,3 +1,6 @@
+// adapter da biblioteca mongoose 
+// simplifica funções do mongoose
+
 const adapter = {
   async insert (type, data) {
     let generic = require(`../models/${type}`)
@@ -28,36 +31,6 @@ const adapter = {
   async fetch (type, who) {
     let generic = require(`../models/${type}`)
     let holder = await generic.findOne(who)
-    if (holder) {
-      return holder
-    } else {
-      return false
-    }
-  },
-
-  async fetchMany (type, who) {
-    let generic = require(`../models/${type}`)
-    let holder = await generic.find(who)
-    if (holder) {
-      return holder
-    } else {
-      return false
-    }
-  },
-
-  async fetchAll (type) {
-    let generic = require(`../models/${type}`)
-    let holder = await generic.find()
-    if (holder) {
-      return holder
-    } else {
-      return false
-    }
-  },
-
-  async del (type, _id) {
-    let generic = require(`../models/${type}`)
-    let holder = await generic.deleteOne({ _id })
     if (holder) {
       return holder
     } else {

@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 const bcrypt = require('bcrypt')
 const jwt = require("jsonwebtoken")
 const rand_token = require('rand-token')
-
+// modelo do banco de dados para os usuarios
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -31,6 +31,7 @@ const UserSchema = new mongoose.Schema({
     default: false
   }
 })
+//função que criptografa a senha do usuario automaticamente durante a criação da conta
 UserSchema.pre('save', async function hashPassword(next) {
   if (!this.isModified('password')) {
     next()
@@ -40,10 +41,12 @@ UserSchema.pre('save', async function hashPassword(next) {
 })
 
 UserSchema.methods = {
+  // função para comparar as senhas durante o login do usuario
   async compareHash(hash) {
     return await bcrypt.compare(hash, this.password)
   },
 
+  // função para criar json web token no login com informações do usuario
   generateToken() {
     let obj = { id: this.id, cpf: this.cpf, refresh: rand_token.uid(20) }
     if (this.permission == "adm") {
