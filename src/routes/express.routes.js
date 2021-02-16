@@ -9,6 +9,6 @@ routes.post('/desafio-node.api/user_register', adapter.generic)
 routes.post('/desafio-node.api/user_login', adapter.generic)
 
 //rota de permissão
-routes.post('/desafio-node.api/modify_permission', adapter.generic)
+routes.put('/desafio-node.api/modify_permission', adapter.generic)
 
 module.exports = routes
