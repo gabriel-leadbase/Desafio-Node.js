@@ -16,10 +16,12 @@ const UserSchema = new mongoose.Schema({
   },
   permission: {
     type: String,
+    required: true,
     min: 6,
   },
   password: {
     type: String,
+    required: true,
     min: 6,
   },
   createdAt: {
