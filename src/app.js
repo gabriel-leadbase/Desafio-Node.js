@@ -27,7 +27,7 @@ class AppController {
     }
     
     dbConnect() {
-        const database = `mongodb+srv://dev:d3s4f1o123@cluster0.vidrm.mongodb.net/desafio-nodejs?retryWrites=true&w=majority`
+        const database = ``
 
         mongoose.connect(database, {
             useNewUrlParser:true,
