@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
-// const { PASSWORD, DATABASE } = process.env;
-const PASSWORD = "xi95gfg8";
-const DATABASE = "desafio-node";
+const { PASSWORD, DATABASE } = process.env;
 const uri = `mongodb+srv://administrador:${PASSWORD}@cluster0.en1tn.mongodb.net/${DATABASE}?retryWrites=true&w=majority`;
 
 mongoose.set("useUnifiedTopology", true);

@@ -1,30 +1,26 @@
 const JWT = require("jsonwebtoken");
 
-const return401 = (res) => {
-  return res.status(401).json({
+const return401 = (res, statusCode, message) => {
+  return res.status(statusCode).json({
     success: false,
-    message: "Invalid or missing token",
+    message: message,
   });
 };
 
 const jwtMiddleware = async (req, res, next) => {
-  const token =
-    req.body.token || req.query.token || req.headers["x-access-token"];
+  const token = req.headers["x-access-token"];
 
-  if (!token) return return401(res);
+  if (!token) return return401(res, 401, "Invalid or missing token");
 
   const jwtDecoded = JWT.decode(token);
 
-  if (!jwtDecoded) return return401(res);
+  if (!jwtDecoded) return return401(res, 401, "Invalid or missing token");
 
   const role = jwtDecoded.role.toString();
-  if (role === "vendedor")
-    return res.status(401).json({
-      success: false,
-      message: "Unauthorized",
-    });
 
-  return next();
+  if (role === "administrador") return next();
+
+  return return401(res, 403, "Unauthorized");
 };
 
 jwtMiddleware.unless = require("express-unless");

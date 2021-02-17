@@ -18,26 +18,23 @@ const login = async (body) => {
   const user = await Users.findOne({ cpf: body.login });
   if (!user) return ["User not found!", null];
   const tokenData = {
+    id: user._id,
     name: user.name,
     cpf: user.cpf,
     role: user.role,
     permissions: user.permissions,
   };
-  const token = jwt.sign(tokenData, "desafio-node", {
-    expiresIn: 300, // expires in 5min
+  const token = jwt.sign(tokenData, process.env.JWT_SECRET, {
+    expiresIn: 1800, // expires in 30min
   });
-  const validPassword = await bcrypt.compare(body.password, user.password);
-  if (validPassword == true) {
-    return [null, token];
-  } else {
-    return ["Incorrect login or password!", null];
-  }
-};
 
-const getUsers = async () => Users.find({});
+  const validPassword = await bcrypt.compare(body.password, user.password);
+
+  if (validPassword) return [null, token];
+  return ["Incorrect login or password!", null];
+};
 
 module.exports = {
   createUser,
   login,
-  getUsers,
 };
