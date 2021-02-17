@@ -39,14 +39,14 @@
   - Nome: Juliana Débora Malu Aragão
   - CPF: 76154589433
   - Senha: 123123
-  - Papel: Usuário
+  - Papel: Vendedor
 ```
 
 ## Principais Rotas
 
 _Abaixo estão listadas as principais rotas para atender as funcionalidade dos sistemas, mas também foi criado algumas rotas complementares como "listar todos usuário e retornar informações do usuário específico"_
 
-Cadastrar um novo usuário
+Cadastrar um novo usuário (vendedor)
 
 ```
 curl -X POST -H "Content-Type: application/json" \
