@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "6d08bf35-bf59-4467-a515-f39585f47450",
+		"name": "DesafioNode.js",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"user 3\",\n    \"cpf\": \"98765432112\",\n    \"password\": \"123456789\",\n    \"role\": \"administrador\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/users/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"users",
+						"create"
+					]
+				},
+				"description": "Add header = x-access-token \nx-access-token = token returned by login"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"login\": \"98765432112\",\n    \"password\": \"123456789\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMmMyMzY4ODg0MjRkMjA0M2E5ODFkNCIsIm5hbWUiOiJ1c2VyIDMiLCJjcGYiOiI5ODc2NTQzMjExMiIsInJvbGUiOiJhZG1pbmlzdHJhZG9yIiwicGVybWlzc2lvbnMiOltdLCJpYXQiOjE2MTM1MDUzOTAsImV4cCI6MTYxMzUwNTY5MH0.bXMweIYZ-o9ff_fL6G6F7L5j4JF8ArTu5w9YjGJAP9M",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addPermissions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMmMyMzY4ODg0MjRkMjA0M2E5ODFkNCIsIm5hbWUiOiJ1c2VyIDMiLCJjcGYiOiI5ODc2NTQzMjExMiIsInJvbGUiOiJhZG1pbmlzdHJhZG9yIiwicGVybWlzc2lvbnMiOltdLCJpYXQiOjE2MTM1MDc4MzksImV4cCI6MTYxMzUwOTYzOX0.z32h7BaO3CQ6U3FisBw2sd_lZkiKzfn1Qhv-ssXew9g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"602c22a6afd0f71f3ce44382\",\n    \"permission\": \"caixa\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/users/permissions/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"users",
+						"permissions",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removePersmissions",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMmMyMzY4ODg0MjRkMjA0M2E5ODFkNCIsIm5hbWUiOiJ1c2VyIDMiLCJjcGYiOiI5ODc2NTQzMjExMiIsInJvbGUiOiJhZG1pbmlzdHJhZG9yIiwicGVybWlzc2lvbnMiOltdLCJpYXQiOjE2MTM1MDc4MzksImV4cCI6MTYxMzUwOTYzOX0.z32h7BaO3CQ6U3FisBw2sd_lZkiKzfn1Qhv-ssXew9g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"6029981c6b8d9112a18dc8a4\",\n    \"permission\": \"caixa\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/users/permissions/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"users",
+						"permissions",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
