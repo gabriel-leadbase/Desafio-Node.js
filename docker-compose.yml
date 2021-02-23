@@ -1,0 +1,30 @@
+version: '3.1'
+
+networks:
+  teste-backend-network:
+    driver: bridge
+
+services:
+  db:
+    image: postgres:latest
+    container_name: teste-backend-postgres
+    environment:
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_USER=docker
+      - POSTGRES_DB=teste-backend
+    ports:
+      - '5432:5432'
+    networks:
+      - teste-backend-network
+
+  db-test:
+    image: postgres:latest
+    container_name: teste-backend-postgres-test
+    environment:
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_USER=docker
+      - POSTGRES_DB=teste-backend-test
+    ports:
+      - '5433:5432'
+    networks:
+      - teste-backend-network
