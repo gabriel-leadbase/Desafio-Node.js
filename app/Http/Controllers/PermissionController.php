@@ -27,12 +27,14 @@ class PermissionController extends Controller
                     'name' => $request->permission,
                 ]);
             }else{
-                return response()->json('Você não possui permissão para acessar essa rota.');
+                return response()->json('Você não possui permissão para acessar essa rota.', 401);
             }
         }else{
-            return response()->json('Insira o nome da permissão');
+            return response()->json('Insira o nome da permissão', 400);
 
         }
+
+        return response()->json("Permissão Adicionada", 201);
     }
 
     public function delete(Request $request)
@@ -42,11 +44,14 @@ class PermissionController extends Controller
             if($user->isAdmin == true){
                 $this->permissionModel->where('name', $request->permission)->delete();
             }else{
-                return response()->json('Você não possui permissão para acessar essa rota.');
+                return response()->json('Você não possui permissão para acessar essa rota.', 401);
             }
         }else{
-            return response()->json('Insira o nome da permissão');
+            return response()->json('Insira o nome da permissão', 400);
 
         }
+
+        return response()->json("Permissão Deletada", 200);
+
     }
 }

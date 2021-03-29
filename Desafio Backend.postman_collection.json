@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "bc565e93-c27d-417f-b2c5-7e1e04b33766",
+		"name": "Desafio Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "registrar usuarios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "cpf",
+							"value": "12345678909",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "030200",
+							"type": "text"
+						},
+						{
+							"key": "isAdmin",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remover permissao",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYxNzAzNjcyMCwiZXhwIjoxNjE3MDQwMzIwLCJuYmYiOjE2MTcwMzY3MjAsImp0aSI6IjlHNUxqQ0l4cVlxaHJlbXUiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.lSjJufkaTtoLleoJuIwlawansSqp5ir2cHP1expJr7I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/permission?permission=Permissao Exemplo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"permission"
+					],
+					"query": [
+						{
+							"key": "permission",
+							"value": "Permissao Exemplo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login de usuarios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "cpf",
+							"value": "12345678909",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "030200",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "07929813592",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "030200",
+							"disabled": true
+						},
+						{
+							"key": "isAdmin",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "adicionar permissao",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9yZWdpc3RlciIsImlhdCI6MTYxNzAzNzI0NSwiZXhwIjoxNjE3MDQwODQ1LCJuYmYiOjE2MTcwMzcyNDUsImp0aSI6InA5TVNpQVBSczExeWJHa0UiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.NmeHMzgHjBIcITW2_k_65apuSUIQa4FV3DC5D_effgw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "permission",
+							"value": "Demitir",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/permission",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"permission"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
