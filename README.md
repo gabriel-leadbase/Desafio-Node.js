@@ -35,6 +35,7 @@ Fique livre para montar token de acesso com o recurso/criptografia que desejar.
 ### Escopo do desafio
 - Documentar todas suposições realizadas;
 - O desenvolvimento do back-end deve ser em Node.js;
+- O banco de dados utilizado deve ser de preferencia relacional (MYSQL)
 - Não é necessário submeter uma aplicação que cumpra cada um dos requisitos descritos, mas o que for submetido deve funcionar;
 - Informar em um arquivo INSTRUCOES.md o passo a passo necessário para rodar o projeto juntamente com o descritivo das funcionalidades que foram atentidas no desafio.
 
@@ -48,7 +49,6 @@ Fique livre para montar token de acesso com o recurso/criptografia que desejar.
 
 ### Diferenciais
 - Tratamento de erros
-- Docker
 - Boa documentação de código;
 - Testes do código.
 
