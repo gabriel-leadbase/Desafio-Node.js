@@ -34,5 +34,24 @@ export default class UserController {
       res.status(422).send(err.message);
     }
   }
-  
+
+  async updateUser(req, res) {
+    const idUser = req.params.id;
+    const bodyNewUser = req.body;
+
+    try {
+      const findedUser = await this.User.findById(idUser);
+
+      findedUser.name = bodyNewUser.name;
+      findedUser.cpf = bodyNewUser.cpf;
+      findedUser.role = bodyNewUser.role;
+      if (bodyNewUser.password) findedUser.password = bodyNewUser.password;
+
+      await findedUser.save();
+      res.sendStatus(200);
+    } catch (err) {
+      res.status(422).send(err.message);
+    }
+  }
+
 }
