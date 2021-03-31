@@ -12,7 +12,7 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
-      senha: {
+      senha_hash: {
         type: Sequelize.STRING,
         allowNull: false,
       },

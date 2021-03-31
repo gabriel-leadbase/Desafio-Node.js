@@ -13,7 +13,8 @@ class CreateUserService {
       senha,
       admin,
     });
-    delete user.password;
+    delete (user.senha, user.senha_hash);
+    console.log(user);
     return user;
   }
 }
