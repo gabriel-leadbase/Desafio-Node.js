@@ -13,4 +13,8 @@ router.get("/:id", (req, res) => {
   usersController.getById(req, res)
 })
 
+router.post("/", (req, res) => {
+  usersController.createUser(req, res);
+});
+
 export default router;

@@ -25,5 +25,14 @@ export default class UserController {
     }
   }
 
+  async createUser(req, res) {
+    const user = new this.User(req.body);
+    try {
+      await user.save();
+      res.status(201).send(user);
+    } catch (err) {
+      res.status(422).send(err.message);
+    }
+  }
   
 }
