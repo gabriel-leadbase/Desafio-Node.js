@@ -196,4 +196,79 @@ describe('Controllers: Users', () => {
     })
   })
 
+  describe('delete() user', () => {
+    it('should respond with 204 when the user has been deleted', async () => {
+      const fakeId = 'a-fake-id'
+      const request = {
+        params: {
+          id: fakeId
+        }
+      };
+      const response = {
+        sendStatus: sinon.spy()
+      };
+      class fakeUser {
+        static deleteOne() {}
+      }
+
+      const removeStub = sinon.stub(fakeUser, 'deleteOne')
+
+      removeStub.withArgs({ _id: fakeId }).resolves([1])
+
+      const usersController = new UsersController(fakeUser)
+
+      await usersController.deleteById(request, response)
+      sinon.assert.calledWith(response.sendStatus, 204)
+    });
+
+    context('when an error occurs', () => {
+      it('should return 400', async () => {
+        const fakeId = 'a-fake-id'
+        const request = {
+        params: {
+          id: fakeId
+        }
+        };
+        const response = {
+          send: sinon.spy(),
+          status: sinon.stub()
+        };
+        class fakeUser {
+          static deleteOne() {}
+        }
+
+        const removeStub = sinon.stub(fakeUser, 'deleteOne')
+
+        removeStub.withArgs({ _id: fakeId }).rejects({ message: 'Error' })
+        response.status.withArgs(400).returns(response)
+
+        const usersController = new UsersController(fakeUser)
+
+        await usersController.deleteById(request, response)
+        sinon.assert.calledWith(response.send, 'Error')
+      })
+    })
+  })
+
+  describe('delete() users', () => {
+    it('should return 204 when all users has been deleted', async () => {
+      const request = {}
+      const response = {
+        sendStatus: sinon.spy()
+      }
+      class fakeUser {
+        static deleteMany() {}
+      }
+
+      const deleteStub = sinon.stub(fakeUser, 'deleteMany')
+      deleteStub.withArgs().resolves(response)
+      
+      const usersController = new UsersController(fakeUser)
+      await usersController.deleteAll(request, response)
+      
+      sinon.assert.calledWith(response.sendStatus, 204)
+
+    })
+  })
+
 })
