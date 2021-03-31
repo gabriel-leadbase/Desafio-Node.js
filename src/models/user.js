@@ -17,6 +17,7 @@ schema.pre("save", async function(next) { // middleware para interceptar o méto
   try {
     const hashedPassword = await hashAsync(this.password, 10)
     this.password = hashedPassword;
+    // console.log(this.password)
   } catch (err) {
     next(err)
   }
