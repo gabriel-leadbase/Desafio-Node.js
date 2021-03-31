@@ -3,6 +3,10 @@
     ``` sh
     git clone https://github.com/KalebeLopes/Desafio-Node.js.git
     ```
+* Selecione a branch Kalebe-Lopes:
+    ``` sh
+    git checkout Kalebe-Lopes
+    ```
 * Na raiz do projeto:
   ``` sh
   npm install
