@@ -1,5 +1,0 @@
-{
-  "require": ["test/unit/helpers.js", "@babel/register"],
-  "reporter": "spec",
-  "timeout": 5000
-}
