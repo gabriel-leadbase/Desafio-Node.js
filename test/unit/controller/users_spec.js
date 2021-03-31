@@ -72,4 +72,55 @@ describe('Controllers: Users', () => {
     });
   });
 
+  describe('create() user', () => {
+    it('should call send with a new user', async () => {
+      const requestWithBody = Object.assign(
+        {},
+        { body: defaultUser[0] },
+        defaultRequest
+      )
+      const response = {
+        send: sinon.spy(),
+        status: sinon.stub()
+      }
+      class fakeUser {  // simulo minha model
+        save() {}
+      }
+
+      response.status.withArgs(201).returns(response);
+      sinon
+        .stub(fakeUser.prototype, 'save')
+        .withArgs()
+        .resolves()
+
+      const usersController = new UsersController(fakeUser)
+
+      await usersController.createUser(requestWithBody, response)
+      sinon.assert.calledWith(response.send)
+    })
+
+    context('when an error occurs', () => {
+      it('should return 422', async () => {
+        const response = {
+          send: sinon.spy(),
+          status: sinon.stub()
+        }
+
+        class fakeUser {
+          save() {}
+        }
+
+        response.status.withArgs(422).returns(response)
+        sinon
+          .stub(fakeUser.prototype, 'save')
+          .withArgs()
+          .rejects({ message: 'Error' });
+        
+        const usersController = new UsersController(fakeUser)
+        await usersController.createUser(defaultRequest, response)
+        sinon.assert.calledWith(response.status, 422)
+      })
+    })
+  })
+
 })
