@@ -32,6 +32,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "chai": "^4.3.4",
+    "config": "^1.29.4",
     "express": "^4.17.1",
     "mocha": "^8.3.2",
     "mongoose": "^5.12.2",
