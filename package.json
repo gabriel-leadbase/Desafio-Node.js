@@ -1,0 +1,49 @@
+{
+  "name": "Desafio-Node.js",
+  "version": "1.0.0",
+  "description": "Desafio para a vaga de desenvolvedor back-end.",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start": "npm run build && node dist/server.js",
+    "start:dev": "babel-node src/server.js",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*_spec.js",
+    "test:unit": "NODE_ENV=test mocha --opts test/unit/mocha.opts test/unit/**/*_spec.js",
+    "prettier:list": "prettier --check 'src/**/*.js'",
+    "prettier:fix": "prettier --write 'src/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KalebeLopes/Desafio-Node.js.git"
+  },
+  "keywords": [],
+  "author": "Kalebe Lopes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KalebeLopes/Desafio-Node.js/issues"
+  },
+  "homepage": "https://github.com/KalebeLopes/Desafio-Node.js#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.13.12",
+    "babel-eslint": "^10.1.0",
+    "chai": "^4.3.4",
+    "eslint": "^7.23.0",
+    "mocha": "^6.2.3",
+    "prettier": "^2.2.1",
+    "sinon": "^7.5.0",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "config": "^1.29.4",
+    "express": "^4.17.1",
+    "express-acl": "^2.0.8",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.2"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "database": {
+    "mongoUrl": "mongodb://localhost/challenge"
+  },
+  "auth": {
+    "key": "chaveSecretaParaOToken",
+    "tokenExpiresIn": "7d"
+  }
+}

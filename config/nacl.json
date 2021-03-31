@@ -1,0 +1,22 @@
+[
+  {
+    "group": "admin",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "vendedor",
+    "permissions": [
+      {
+        "resource": "/",
+        "methods": ["GET"],
+        "action": "allow"
+      }
+    ]
+  }
+]
