@@ -33,9 +33,11 @@
     "supertest": "^4.0.2"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "config": "^1.29.4",
     "express": "^4.17.1",
+    "express-acl": "^2.0.8",
     "mongoose": "^5.12.2"
   }
 }
