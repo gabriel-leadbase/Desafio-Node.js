@@ -1,0 +1,26 @@
+{
+  "name": "Desafio-Node.js",
+  "version": "1.0.0",
+  "description": "Desafio para a vaga de desenvolvedor back-end.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KalebeLopes/Desafio-Node.js.git"
+  },
+  "keywords": [],
+  "author": "Kalebe Lopes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KalebeLopes/Desafio-Node.js/issues"
+  },
+  "homepage": "https://github.com/KalebeLopes/Desafio-Node.js#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.13.12"
+  }
+}
