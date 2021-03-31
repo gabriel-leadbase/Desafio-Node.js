@@ -1,4 +1,5 @@
 import setupApp from './app'
+import User from "../src/models/user"
 const port = 3030;
 
 (async () => {
@@ -7,6 +8,15 @@ const port = 3030;
     const server = app.listen(port, () =>
       console.info(`App rodando na porta ${port}`)
     )
+
+    const admin = new User({
+      name: 'kalebe',
+      cpf: '123456',
+      password: '123',
+      role: 'admin'
+    })
+    console.log(admin)
+    admin.save()
 
     const exitSignals = ["SIGINT", "SIGTERM", "SIGQUIT"]
     exitSignals.map(sig =>
