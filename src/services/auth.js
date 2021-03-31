@@ -1,14 +1,14 @@
-import bcrypt from "bcrypt"
-import jwt from "jsonwebtoken"
-import config from "config"
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import config from "config";
 
 class Auth {
   constructor(User) {
-    this.User = User
+    this.User = User;
   }
 
   async authenticate(dataUser) {
-    const user = await this.User.findOne({ cpf: dataUser.cpf })
+    const user = await this.User.findOne({ cpf: dataUser.cpf });
     // console.log(user)
     if (!user || !(await bcrypt.compare(dataUser.password, user.password))) {
       console.log("Senhas não são iguais");
@@ -19,7 +19,7 @@ class Auth {
 
   static generateToken(payload) {
     return jwt.sign(payload, config.get("auth.key"), {
-      expiresIn: config.get("auth.tokenExpiresIn")
+      expiresIn: config.get("auth.tokenExpiresIn"),
     });
   }
 }

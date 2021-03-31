@@ -9,7 +9,9 @@
     "start:dev": "babel-node src/server.js",
     "test": "npm run test:unit && npm run test:integration",
     "test:integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*_spec.js",
-    "test:unit": "NODE_ENV=test mocha --opts test/unit/mocha.opts test/unit/**/*_spec.js"
+    "test:unit": "NODE_ENV=test mocha --opts test/unit/mocha.opts test/unit/**/*_spec.js",
+    "prettier:list": "prettier --check 'src/**/*.js'",
+    "prettier:fix": "prettier --write 'src/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -27,8 +29,11 @@
     "@babel/core": "^7.13.14",
     "@babel/node": "^7.13.13",
     "@babel/preset-env": "^7.13.12",
+    "babel-eslint": "^10.1.0",
     "chai": "^4.3.4",
+    "eslint": "^7.23.0",
     "mocha": "^6.2.3",
+    "prettier": "^2.2.1",
     "sinon": "^7.5.0",
     "supertest": "^4.0.2"
   },

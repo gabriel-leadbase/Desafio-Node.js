@@ -1,21 +1,21 @@
 export default class UserController {
   constructor(User, AuthService) {
-    this.User = User
-    this.AuthService = AuthService
+    this.User = User;
+    this.AuthService = AuthService;
   }
 
   async get(req, res) {
     try {
-      const users = await this.User.find({})
-      res.send(users)
+      const users = await this.User.find({});
+      res.send(users);
     } catch (err) {
-      res.status(400).send(err.message)
+      res.status(400).send(err.message);
     }
   }
 
   async getById(req, res) {
     const {
-      params: { id }
+      params: { id },
     } = req;
     try {
       const user = await this.User.findOne({ _id: id });
@@ -28,7 +28,7 @@ export default class UserController {
 
   async createUser(req, res) {
     const user = new this.User(req.body);
-    console.log(req.body)
+    console.log(req.body);
     try {
       await user.save();
       res.status(201).send(user);
@@ -76,22 +76,22 @@ export default class UserController {
   }
 
   async authenticateUser(req, res) {
-    const authService = new this.AuthService(this.User)
-    const user = await authService.authenticate(req.body)
+    const authService = new this.AuthService(this.User);
+    const user = await authService.authenticate(req.body);
 
-    console.log(user)
+    console.log(user);
 
     if (!user) {
-      return res.sendStatus(401)
+      return res.sendStatus(401);
     }
 
     const token = this.AuthService.generateToken({
       name: user.name,
       cpf: user.cpf,
       password: user.password,
-      role: user.role
-    })
+      role: user.role,
+    });
     // console.log(token)
-    return res.send({ token })
+    return res.send({ token });
   }
 }
