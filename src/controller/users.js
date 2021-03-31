@@ -54,4 +54,24 @@ export default class UserController {
     }
   }
 
+  async deleteAll(req, res) {
+    try {
+      await this.User.deleteMany();
+      res.sendStatus(204);
+    } catch (err) {
+      res.status(400).send(err.message);
+    }
+  }
+
+  async deleteById(req, res) {
+    const userId = req.params.id;
+    try {
+      await this.User.deleteOne({ _id: userId });
+      res.sendStatus(204);
+    } catch (err) {
+      res.status(400).send(err.message);
+    }
+  }
+
+
 }

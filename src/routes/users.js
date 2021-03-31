@@ -21,4 +21,12 @@ router.put("/:id", (req, res) => {
   usersController.updateUser(req, res);
 });
 
+router.delete("/", (req, res) => {
+  usersController.deleteAll(req, res);
+});
+
+router.delete("/:id", (req, res) => {
+  usersController.deleteById(req, res);
+});
+
 export default router;
