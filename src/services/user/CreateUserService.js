@@ -1,4 +1,4 @@
-import User from '../models/User';
+import User from '../../models/User';
 
 class CreateUserService {
   async execute({ cpf, senha, admin }) {
@@ -13,8 +13,9 @@ class CreateUserService {
       senha,
       admin,
     });
+
     delete (user.senha, user.senha_hash);
-    console.log(user);
+
     return user;
   }
 }
