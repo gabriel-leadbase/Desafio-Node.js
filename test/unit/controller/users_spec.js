@@ -123,4 +123,77 @@ describe('Controllers: Users', () => {
     })
   })
 
+  describe('update() user', () => {
+    it('should respond with 200 when the user has been updated', async () => {
+      const fakeId = 'a-fake-id'
+      const updatedUser = {
+        _id: fakeId,
+        name: 'Updated User',
+        cpf: '10201301',
+        password: 'password',
+        role: 'user'
+      }
+      const request = {
+        params: {
+          id: fakeId
+        },
+        body: updatedUser
+      }
+      const response = {
+        sendStatus: sinon.spy()
+      }
+      class fakeUser {
+        static findById() {}
+        save() {}
+      }
+      const fakeUserInstance = new fakeUser();
+
+      const saveSpy = sinon.spy(fakeUser.prototype, 'save');
+      const findByIdStub = sinon.stub(fakeUser, 'findById');
+      findByIdStub.withArgs(fakeId).resolves(fakeUserInstance);
+
+      const usersController = new UsersController(fakeUser);
+
+      await usersController.updateUser(request, response);
+      sinon.assert.calledWith(response.sendStatus, 200);
+      sinon.assert.calledOnce(saveSpy);
+    })
+
+    context('when an error occurs', () => {
+      it('should return 422', async () => {
+        const fakeId = 'a-fake-id'
+        const updatedUser = {
+          _id: fakeId,
+          name: 'Updated User',
+          cpf: '10201301',
+          password: 'password',
+          role: 'user'
+        }
+        const request = {
+          params: {
+          id: fakeId
+        },
+          body: updatedUser
+        }
+        const response = {
+          send: sinon.spy(),
+          status: sinon.stub()
+        }
+
+        class fakeUser {
+          static findById() {}
+        }
+
+        const findByIdStub = sinon.stub(fakeUser, 'findById');
+        findByIdStub.withArgs(fakeId).rejects({ message: 'Error' });
+        response.status.withArgs(422).returns(response);
+
+        const usersController = new UsersController(fakeUser);
+
+        await usersController.updateUser(request, response);
+        sinon.assert.calledWith(response.send, 'Error');
+      })
+    })
+  })
+
 })
