@@ -38,6 +38,7 @@
     "config": "^1.29.4",
     "express": "^4.17.1",
     "express-acl": "^2.0.8",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.2"
   }
 }
