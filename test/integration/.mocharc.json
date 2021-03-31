@@ -1,0 +1,4 @@
+{
+  "require": ["test/integration/helpers.js", "@babel/register"],
+  "timeout": 5000
+}

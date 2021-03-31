@@ -1,3 +1,0 @@
---require @babel/register
---require test/integration/helpers.js
---timeout 5000
