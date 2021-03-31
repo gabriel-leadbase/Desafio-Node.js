@@ -1,6 +1,7 @@
 export default class UserController {
-  constructor(User) {
+  constructor(User, AuthService) {
     this.User = User
+    this.AuthService = AuthService
   }
 
   async get(req, res) {
@@ -27,6 +28,7 @@ export default class UserController {
 
   async createUser(req, res) {
     const user = new this.User(req.body);
+    console.log(req.body)
     try {
       await user.save();
       res.status(201).send(user);
@@ -73,5 +75,23 @@ export default class UserController {
     }
   }
 
+  async authenticateUser(req, res) {
+    const authService = new this.AuthService(this.User)
+    const user = await authService.authenticate(req.body)
 
+    console.log(user)
+
+    if (!user) {
+      return res.sendStatus(401)
+    }
+
+    const token = this.AuthService.generateToken({
+      name: user.name,
+      cpf: user.cpf,
+      password: user.password,
+      role: user.role
+    })
+    // console.log(token)
+    return res.send({ token })
+  }
 }
