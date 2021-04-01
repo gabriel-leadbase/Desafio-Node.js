@@ -67,7 +67,7 @@ module.exports = {
           content: {
             'application/json': {
               schema: {
-                $ref: '#components/schemas/User',
+                $ref: '#components/schemas/sessionBody',
               },
             },
           },
@@ -103,7 +103,7 @@ module.exports = {
           content: {
             'application/json': {
               schema: {
-                $ref: '#components/schemas/cpf',
+                $ref: '#components/schemas/alterRoleBody',
               },
             },
           },
@@ -163,6 +163,17 @@ module.exports = {
           },
         },
       },
+      sessionBody: {
+        type: 'object',
+        properties: {
+          cpf: {
+            $ref: '#/components/schemas/cpf',
+          },
+          senha: {
+            $ref: '#/components/schemas/senha',
+          },
+        },
+      },
       sessionResponse: {
         type: 'object',
         properties: {
@@ -177,6 +188,14 @@ module.exports = {
           },
           token: {
             $ref: '#/components/schemas/token',
+          },
+        },
+      },
+      alterRoleBody: {
+        type: 'object',
+        properties: {
+          cpf: {
+            $ref: '#/components/schemas/cpf',
           },
         },
       },

@@ -15,9 +15,13 @@ class CreateUserService {
       admin,
     });
 
-    delete (user.senha, user.senha_hash);
-
-    return user;
+    return {
+      user: {
+        id: user.id,
+        cpf,
+        admin,
+      },
+    };
   }
 }
 export default CreateUserService;
