@@ -13,7 +13,9 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "swagger-ui-express": "^4.1.6",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "eslint": "^7.23.0",

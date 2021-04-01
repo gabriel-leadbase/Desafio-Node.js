@@ -1,9 +1,10 @@
 import { Router } from 'express';
 import CreateSessionService from '../services/session/CreateSessionService';
+import validateUser from '../validators/UserStore';
 
 const sessionsRouter = Router();
 
-sessionsRouter.post('/', async (request, response) => {
+sessionsRouter.post('/', validateUser, async (request, response) => {
   const { cpf, senha } = request.body;
 
   const createSessionService = new CreateSessionService();

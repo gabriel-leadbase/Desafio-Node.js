@@ -10,7 +10,5 @@ const routes = Router();
 routes.use('/users', usersRouter);
 routes.use('/session', sessionsRouter);
 
-routes.use(authMiddleware);
-
-routes.use('/alterrole', alterRoleRouter);
+routes.use('/alterrole', authMiddleware, alterRoleRouter);
 export default routes;

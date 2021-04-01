@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "be533d87-a757-4e94-ac04-95848c2c01a7",
+		"name": "Desafio-Node",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cpf\": \"02891921831\",\n\t\"senha\": \"92383sdhkdksj\",\n\t\"admin\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create session",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cpf\": \"02891921831\",\n\t\"senha\": \"92383sdhkdksj\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/session",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alter Role",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImFkbWluIjp0cnVlLCJpYXQiOjE2MTcyNDE2MjEsImV4cCI6MTYxNzMyODAyMX0.9tJha8SU7taWlWsAtnAfP1ko6o8W0Z1nylsr_0GGfww",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cpf\": \"02891921831\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/alterrole",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"alterrole"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
