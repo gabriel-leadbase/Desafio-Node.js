@@ -14,14 +14,15 @@ class CreateSessionService {
       console.log('senha incorreta');
     }
 
-    const { id } = user;
+    const { id, admin } = user;
 
     return {
       user: {
         id,
         cpf,
+        admin,
       },
-      token: jwt.sign({ id }, auth.secret, {
+      token: jwt.sign({ id, admin }, auth.secret, {
         expiresIn: auth.expiresIn,
       }),
     };
