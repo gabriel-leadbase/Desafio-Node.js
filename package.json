@@ -1,0 +1,28 @@
+{
+  "name": "Desafio-Node.js",
+  "version": "1.0.0",
+  "description": "Esse é o nosso desafio para a vaga de desenvolvedor back-end. Serão testadas as habilidades e qualidade de código ao transformar requisitos limitados em uma API Rest.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsfratel/Desafio-Node.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lsfratel/Desafio-Node.js/issues"
+  },
+  "homepage": "https://github.com/lsfratel/Desafio-Node.js#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "koa": "^2.13.1",
+    "koa-mount": "^4.0.0",
+    "koa-trie-router": "^2.1.7"
+  }
+}
