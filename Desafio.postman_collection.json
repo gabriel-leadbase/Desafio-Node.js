@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "5f629650-4c34-4978-8a91-f7ba5324ccc7",
+		"name": "Desafio",
+		"description": "Desafio Back-End.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registrar Usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Lucas Santana\",\r\n    \"cpf\": \"11111111111\",\r\n    \"senha\": \"123\",\r\n    \"roles\": [\"admin\", \"vendedor\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				},
+				"description": "Rota para registro de usuário, todos os campos são obrigatórios."
+			},
+			"response": []
+		},
+		{
+			"name": "Logar Usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cpf\": \"11111111111\",\r\n    \"senha\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"login"
+					]
+				},
+				"description": "Rota para logar o usuário, cpf & senha."
+			},
+			"response": []
+		},
+		{
+			"name": "(Auth) Perfil do Usuário",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "2201a873-fbba-4f44-b56c-eccf7cd0e30f",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-SSID",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/admin/perfil",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"perfil"
+					]
+				},
+				"description": "Obtém os dados do usuário pela session id. Acesso apenas para usuários com função de 'admin'.\n\nAuthorization:\nAPI Key: X-SSID\nValue: Token SSID recebida no login"
+			},
+			"response": []
+		},
+		{
+			"name": "(Auth) Listar Usuários",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "2201a873-fbba-4f44-b56c-eccf7cd0e30f",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-SSID",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"admin"
+					]
+				},
+				"description": "Lista todos os usuários cadastrados. Acesso apenas para usuários com função de 'admin'.\n\nAuthorization:\nAPI Key: X-SSID\nValue: Token SSID recebida no login"
+			},
+			"response": []
+		},
+		{
+			"name": "(Auth) Modificar Permissão de um Usuário",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "2201a873-fbba-4f44-b56c-eccf7cd0e30f",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-SSID",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 1618319102559,\r\n    \"roles\": [\"admin\", \"vendedor\", \"ti\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/admin/change",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"change"
+					]
+				},
+				"description": "Rota para modificar as funções de um usuário cadastrado. Acesso apenas para usuários com função de 'admin'.\n\nAuthorization:\nAPI Key: X-SSID\nValue: Token SSID recebida no login"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

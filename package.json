@@ -4,7 +4,8 @@
   "description": "Esse é o nosso desafio para a vaga de desenvolvedor back-end. Serão testadas as habilidades e qualidade de código ao transformar requisitos limitados em uma API Rest.",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,9 @@
   },
   "dependencies": {
     "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
     "koa-mount": "^4.0.0",
-    "koa-trie-router": "^2.1.7"
+    "koa-trie-router": "^2.1.7",
+    "uuid": "^8.3.2"
   }
 }
