@@ -1,7 +1,12 @@
 require("dotenv/config");
 require("../database/connect");
 
-const { createUser, getUsers, getUser } = require("../models/users.model");
+const {
+  createUser,
+  getUsers,
+  getUser,
+  updateUser,
+} = require("../models/users.model");
 
 describe("Users model teste suite", () => {
   const userData = {
@@ -26,5 +31,13 @@ describe("Users model teste suite", () => {
     const user = await getUser(userData.cpf);
 
     expect(user.role).toBe(userData.role);
+  });
+
+  it("update user", async () => {
+    await updateUser(userData.cpf, { role: "SELLER" });
+
+    const user = await getUser(userData.cpf);
+
+    expect(user.role).toBe("SELLER");
   });
 });
