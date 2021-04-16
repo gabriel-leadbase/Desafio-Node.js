@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write ."
+    "format": "prettier --write \"src/**/*.js\" \"test/**/*.js\""
   },
   "repository": {
     "type": "git",
