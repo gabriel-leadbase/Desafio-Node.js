@@ -44,7 +44,9 @@ async function updateUser(cpf, newData) {
 }
 
 async function removeUser(cpf) {
-  await getUser(cpf).remove();
+  const user = await getUser(cpf);
+
+  await user.remove();
 }
 
 module.exports = { createUser, getUsers, getUser, updateUser, removeUser };
