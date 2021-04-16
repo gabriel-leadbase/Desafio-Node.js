@@ -6,7 +6,7 @@ describe("JWT tests suite", () => {
   let token;
 
   const payload = {
-    data: "meow"
+    data: "meow",
   };
 
   test("sign token", () => {
