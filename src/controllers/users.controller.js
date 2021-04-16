@@ -18,8 +18,7 @@ async function createUser(req, res) {
 
 async function getUser(req, res) {
   try {
-    const { cpf } = req.params;
-    const user = await userModel.getUser(cpf);
+    const user = await userModel.getUser(req.params.cpf);
 
     if (user === undefined) throw new Error("User not found!");
 
@@ -51,4 +50,19 @@ async function getUsers(req, res) {
   }
 }
 
-module.exports = { createUser, getUser, getUsers };
+async function updateUser(req, res) {
+  try {
+    await userModel.updateUser(req.params.cpf, req.body);
+
+    return res.status(202).json({
+      log: "user updated",
+    });
+  } catch (err) {
+    return res.status(500).json({
+      log: "error on user update",
+      error: err.message,
+    });
+  }
+}
+
+module.exports = { createUser, getUser, getUsers, updateUser };
