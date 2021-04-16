@@ -65,4 +65,19 @@ async function updateUser(req, res) {
   }
 }
 
-module.exports = { createUser, getUser, getUsers, updateUser };
+async function removeUser(req, res) {
+  try {
+    await userModel.removeUser(req.params.cpf);
+
+    return res.status(202).json({
+      log: "user removed",
+    });
+  } catch (err) {
+    return res.status(500).json({
+      log: "error on user remove",
+      error: err.message,
+    });
+  }
+}
+
+module.exports = { createUser, getUser, getUsers, updateUser, removeUser };
