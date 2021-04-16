@@ -6,6 +6,7 @@ const {
   getUsers,
   getUser,
   updateUser,
+  removeUser,
 } = require("../models/users.model");
 
 describe("Users model teste suite", () => {
@@ -39,5 +40,13 @@ describe("Users model teste suite", () => {
     const user = await getUser(userData.cpf);
 
     expect(user.role).toBe("SELLER");
+  });
+
+  it("remove user", async () => {
+    await removeUser(userData.cpf);
+
+    const user = await getUser(userData.cpf);
+
+    expect(user).toBe(undefined);
   });
 });
