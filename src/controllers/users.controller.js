@@ -23,7 +23,7 @@ async function getUser(req, res) {
 
     if (user === undefined) throw new Error("User not found!");
 
-    return res.status(201).json({
+    return res.status(200).json({
       log: "user getted",
       user,
     });
@@ -36,12 +36,19 @@ async function getUser(req, res) {
 }
 
 async function getUsers(req, res) {
-  const users = await userModel.getUsers();
+  try {
+    const users = await userModel.getUsers();
 
-  return res.status(201).json({
-    log: "users getted",
-    users,
-  });
+    return res.status(users.length > 0 ? 200 : 404).json({
+      log: "users getted",
+      users,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      log: "error on users get",
+      error: err.message,
+    });
+  }
 }
 
 module.exports = { createUser, getUser, getUsers };
