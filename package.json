@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "test": "jest ./src/__tests__",
+    "test": "jest ./src/__tests__ --detectOpenHandles",
     "format": "prettier --write \"src/**/*.js\""
   },
   "repository": {
