@@ -39,7 +39,6 @@ async function updateUser(cpf, newData) {
 
   await user.updateOne({
     updatedAt: new Date().toLocaleString(),
-    cpf: newData.cpf || user.cpf,
     role: newData.role || user.role,
   });
 }
