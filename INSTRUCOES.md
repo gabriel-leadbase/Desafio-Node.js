@@ -82,7 +82,19 @@ Body:
 > Para autenticar um usuário, ele dever existir no banco de dados antes.
 > Use a rota de criação de usuário para fazer isso.
 
+> O token é valido por 24 horas.
+
 ### Users
+
+Todas as rotas de usuário, exceto a de criação, precisam de um token de autorização,
+para funcionar, o token é fornecido pela rota `/auth` [(documentação acima)](#auth).
+
+O token de autorização pode ser usado nos headers da requisição:
+```shell
+Authorization: Bearer <token>
+```
+
+Mas também pode ser configurado como uma variavel no postman, nomeada como `token`.
 
 #### Criar usuário
 
