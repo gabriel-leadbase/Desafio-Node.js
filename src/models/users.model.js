@@ -14,7 +14,7 @@ async function createUser({ cpf, password, role }) {
     const user = new User({
       cpf,
       role,
-      password: sha256(password + passAlt),
+      password: sha256.x2(password + passAlt),
     });
 
     await user.save();
@@ -32,7 +32,7 @@ async function authUser({ cpf, password, token }) {
     if (
       user !== undefined &&
       cpf === user.cpf &&
-      sha256(password + passAlt) === user.password
+      sha256.x2(password + passAlt) === user.password
     ) {
       return sign({
         cpf: user.cpf,
