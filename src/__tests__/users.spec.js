@@ -7,6 +7,7 @@ const {
   getUser,
   updateUser,
   removeUser,
+  authUser,
 } = require("../models/users.model");
 
 describe("Users model teste suite", () => {
@@ -14,12 +15,24 @@ describe("Users model teste suite", () => {
     cpf: "1234",
     password: "123",
     role: "ADMIN",
+    token: "",
   };
 
   it("create user", async () => {
     const user = await createUser(userData);
 
     expect(user.cpf).toBe(userData.cpf);
+  });
+
+  it("auth user", async () => {
+    userData.token = await authUser({
+      cpf: userData.cpf,
+      password: userData.password,
+    });
+
+    const decodedToken = await authUser({ token: userData.token });
+
+    expect(decodedToken.role).toBe(userData.role);
   });
 
   it("get all users", async () => {
