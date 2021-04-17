@@ -16,6 +16,25 @@ async function createUser(req, res) {
   }
 }
 
+async function authUser(req, res) {
+  try {
+    const token = await userModel.authUser({
+      cpf: req.body.cpf,
+      password: req.body.password,
+    });
+
+    return res.status(202).json({
+      log: "user autheticated",
+      token,
+    });
+  } catch (err) {
+    return res.status(202).json({
+      log: "user authetication error",
+      error: err.message,
+    });
+  }
+}
+
 async function getUser(req, res) {
   try {
     const user = await userModel.getUser(req.params.cpf);
@@ -80,4 +99,11 @@ async function removeUser(req, res) {
   }
 }
 
-module.exports = { createUser, getUser, getUsers, updateUser, removeUser };
+module.exports = {
+  createUser,
+  getUser,
+  getUsers,
+  updateUser,
+  removeUser,
+  authUser,
+};
