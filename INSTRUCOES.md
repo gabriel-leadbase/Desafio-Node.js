@@ -142,6 +142,8 @@ Body:
 }
 ```
 
+> Se a permissão que for informada no array de permissions já existir no usuário, ela é deletada.
+
 #### Remover usuário (Apenas admins)
 
 Endpoint:
