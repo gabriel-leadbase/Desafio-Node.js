@@ -55,9 +55,11 @@ async function getUsers() {
 async function getUser(cpf) {
   const users = await getUsers();
 
-  for (const user of users) {
-    if (user.cpf === cpf) {
-      return user;
+  if (users.length > 0) {
+    for (const user of users) {
+      if (user.cpf === cpf) {
+        return user;
+      }
     }
   }
 
@@ -67,29 +69,41 @@ async function getUser(cpf) {
 async function updateUser(cpf, newData) {
   const user = await getUser(cpf);
 
-  await user.updateOne({
-    updatedAt: new Date().toLocaleString(),
-    role: newData.role || user.role,
-    password: newData.password
-      ? sha256.x2(newData.password + passAlt)
-      : user.password,
-    permissions: newData.permissions
-      ? [
-          ...user.permissions,
-          ...new Set(
-            newData.permissions.filter(
-              (permission) => !user.permissions.includes(permission),
+  if (user !== undefined) {
+    await user.updateOne({
+      updatedAt: new Date().toLocaleString(),
+      role: newData.role || user.role,
+      password: newData.password
+        ? sha256.x2(newData.password + passAlt)
+        : user.password,
+      permissions: newData.permissions
+        ? [
+            ...user.permissions,
+            ...new Set(
+              newData.permissions.filter(
+                (permission) => !user.permissions.includes(permission),
+              ),
             ),
-          ),
-        ]
-      : user.permissions,
-  });
+          ]
+        : user.permissions,
+    });
+
+    return;
+  }
+
+  throw new Error("User doesn't exists!");
 }
 
 async function removeUser(cpf) {
   const user = await getUser(cpf);
 
-  await user.remove();
+  if (user !== undefined) {
+    await user.remove();
+
+    return;
+  }
+
+  throw new Error("User doesn't exists!");
 }
 
 module.exports = {
