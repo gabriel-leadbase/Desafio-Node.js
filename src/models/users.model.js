@@ -1,14 +1,21 @@
 const { model } = require("mongoose");
+const sha256 = require("sha256");
 
 const userSchema = require("../schemas/users.schema");
+const { sign, verify } = require("../shared/jwt");
 
+const passAlt = process.env.PASS_ALT;
 const User = model("User", userSchema);
 
-async function createUser(userData) {
-  const exists = await getUser(userData.cpf);
+async function createUser({ cpf, password, role }) {
+  const exists = await getUser(cpf);
 
   if (!exists) {
-    const user = new User(userData);
+    const user = new User({
+      cpf,
+      role,
+      password: sha256(password + passAlt),
+    });
 
     await user.save();
 
@@ -16,6 +23,28 @@ async function createUser(userData) {
   }
 
   throw new Error("That user already exists!");
+}
+
+async function authUser({ cpf, password, token }) {
+  if (!token) {
+    const user = await getUser(cpf);
+
+    if (
+      user !== undefined &&
+      cpf === user.cpf &&
+      sha256(password + passAlt) === user.password
+    ) {
+      return sign({
+        cpf: user.cpf,
+        role: user.role,
+        permissions: user.permissions,
+      });
+    }
+
+    throw new Error("Incorrect credentials!");
+  }
+
+  return verify(token);
 }
 
 async function getUsers() {
@@ -49,4 +78,11 @@ async function removeUser(cpf) {
   await user.remove();
 }
 
-module.exports = { createUser, getUsers, getUser, updateUser, removeUser };
+module.exports = {
+  createUser,
+  getUsers,
+  getUser,
+  updateUser,
+  removeUser,
+  authUser,
+};
