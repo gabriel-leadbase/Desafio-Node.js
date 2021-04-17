@@ -77,13 +77,16 @@ async function updateUser(cpf, newData) {
         ? sha256.x2(newData.password + passAlt)
         : user.password,
       permissions: newData.permissions
-        ? (() => {
-            const permissions = [...user.permissions, ...newData.permissions];
-
-            return permissions.filter(
+        ? [
+            // remove user permissions
+            ...user.permissions.filter(
+              (permission) => !newData.permissions.includes(permission),
+            ),
+            // add user permissions
+            ...newData.permissions.filter(
               (permission) => !user.permissions.includes(permission),
-            );
-          })()
+            ),
+          ]
         : user.permissions,
     });
 
