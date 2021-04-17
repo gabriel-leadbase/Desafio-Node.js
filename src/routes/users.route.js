@@ -12,10 +12,10 @@ const {
 
 const userRoutes = Router();
 
-userRoutes.post("/user", createUser);
-userRoutes.get("/user", authMiddleware, roleMiddleware, getUsers);
-userRoutes.get("/user/:cpf", authMiddleware, roleMiddleware, getUser);
-userRoutes.put("/user/:cpf", authMiddleware, roleMiddleware, updateUser);
-userRoutes.delete("/user/:cpf", authMiddleware, roleMiddleware, removeUser);
+userRoutes.post("/users", createUser);
+userRoutes.get("/users", authMiddleware, roleMiddleware, getUsers);
+userRoutes.get("/users/:cpf", authMiddleware, roleMiddleware, getUser);
+userRoutes.put("/users/:cpf", authMiddleware, roleMiddleware, updateUser);
+userRoutes.delete("/users/:cpf", authMiddleware, roleMiddleware, removeUser);
 
 module.exports = userRoutes;
