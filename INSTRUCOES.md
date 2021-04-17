@@ -56,7 +56,7 @@ Para iniciar a API, execute o comando:
 $ npm run start
 ```
 
-Executando tests:
+Executando testes:
 
 ```shell
 $ npm run test
@@ -86,7 +86,7 @@ Body:
 
 ### Users
 
-Todas as rotas de usuário, exceto a de criação, precisam de um token de autorização,
+Todas as rotas de usuário, exceto a de criação, precisam de um token de autorização
 para funcionar, o token é fornecido pela rota `/auth` [(documentação acima)](#auth).
 
 O token de autorização pode ser usado nos headers da requisição:
@@ -112,21 +112,21 @@ Body:
 }
 ```
 
-#### Buscar usuário
+#### Buscar usuário (Apenas admins)
 
 Endpoint:
 ```shell
 GET: /users/:cpf
 ```
 
-#### Buscar usuários
+#### Buscar usuários (Apenas admins)
 
 Endpoint:
 ```shell
 GET: /users
 ```
 
-#### Editar usuário
+#### Editar usuário (Apenas admins)
 
 Endpoint:
 ```shell
@@ -142,7 +142,7 @@ Body:
 }
 ```
 
-#### Remover usuário
+#### Remover usuário (Apenas admins)
 
 Endpoint:
 ```shell
