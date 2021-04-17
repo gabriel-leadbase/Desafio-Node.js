@@ -7,13 +7,14 @@ const { sign, verify } = require("../shared/jwt");
 const passAlt = process.env.PASS_ALT;
 const User = model("User", userSchema);
 
-async function createUser({ cpf, password, role }) {
+async function createUser({ cpf, password, role, permissions }) {
   const exists = await getUser(cpf);
 
   if (!exists) {
     const user = new User({
       cpf,
       role,
+      permissions,
       password: sha256.x2(password + passAlt),
     });
 
@@ -69,6 +70,16 @@ async function updateUser(cpf, newData) {
   await user.updateOne({
     updatedAt: new Date().toLocaleString(),
     role: newData.role || user.role,
+    permissions: newData.permissions
+      ? [
+          ...user.permissions,
+          ...new Set(
+            newData.permissions.filter(
+              (permission) => !user.permissions.includes(permission),
+            ),
+          ),
+        ]
+      : user.permissions,
   });
 }
 
