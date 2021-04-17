@@ -70,6 +70,10 @@ async function updateUser(cpf, newData) {
   await user.updateOne({
     updatedAt: new Date().toLocaleString(),
     role: newData.role || user.role,
+    cpf: newData.cpf || user.cpf,
+    password: newData.password
+      ? sha256.x2(newData.password + passAlt)
+      : user.password,
     permissions: newData.permissions
       ? [
           ...user.permissions,
