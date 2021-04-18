@@ -64,7 +64,7 @@ class UserController {
 
     await userToDelete.destroy();
 
-    return res.status(200).json(`User was deleted`);
+    return res.status(200).json('User was deleted');
   }
 }
 

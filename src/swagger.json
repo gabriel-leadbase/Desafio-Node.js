@@ -1,0 +1,407 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Desafio Node",
+    "description": "This node test API",
+    "version": "1.0.0",
+    "contact": {
+      "email": "evandro.rmbraga@gmail.com"
+    }
+  },
+
+  "paths": {
+    "/sessions": {
+      "post": {
+        "tags": ["Sessions"],
+        "summary": "Autenticação do usuário",
+        "description": "Essa rota permite o login do usuário, fornecendo o token de autenticação",
+        "security": {
+          "Bearer": []
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cpf": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "cpf": "78383077592",
+                  "password": "123456"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "user": {
+                        "id": "number",
+                        "role": "string"
+                      },
+                      "token": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Password does not match"
+          },
+          "404": {
+            "description": "User does not found."
+          }
+        }
+      }
+    },
+
+    "/users": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Criação de um novo usuário",
+        "description": "Essa rota permite a criação de um novo usuário.",
+        "security": {
+          "Bearer": []
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cpf": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+
+                  "role": {
+                    "type": "string"
+                  },
+                  "permission": {
+                    "type": "array"
+                  }
+                },
+                "example": {
+                  "cpf": "78383077592",
+                  "name": "John Doe",
+                  "password": "123456",
+                  "role": "admin",
+                  "permission": ["compara", "venda"]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "cpf": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      },
+
+                      "role": {
+                        "type": "string"
+                      },
+                      "permission": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "timestamp"
+                      },
+                      "updated_at": {
+                        "type": "timestamp"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation fails"
+          }
+        }
+      },
+
+      "get": {
+        "tags": ["Users"],
+        "summary": "Busca todos os usuários da plataforma",
+        "description": "Essa rota permite que o usuário Administrador busque todos os usuários da plataforma.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "cpf": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      },
+
+                      "role": {
+                        "type": "string"
+                      },
+                      "permission": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "timestamp"
+                      },
+                      "updated_at": {
+                        "type": "timestamp"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "You do not have permission to access"
+
+          },
+          "403": {
+            "description": "Token not provided!"
+          }
+        }
+      }
+    },
+
+    "/users/{id}": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Busca um usuário na plataforma",
+        "description": "Essa rota permite que o usuário Administrador busque um usuário na plataforma.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "cpf": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      },
+
+                      "role": {
+                        "type": "string"
+                      },
+                      "permission": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "timestamp"
+                      },
+                      "updated_at": {
+                        "type": "timestamp"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "You do not have permission to access"
+
+          },
+          "403": {
+            "description": "Token not provided!"
+          },
+          "404": {
+            "description": "User does not found"
+          }
+        }
+      },
+
+      "put": {
+        "tags": ["Users"],
+        "summary": "Atualização de permissões de usuários",
+        "description": "Essa rota permite que o usuário Administrador atualize as permissões de um usuários.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                  "permission": {
+                    "type": "array"
+                  }
+                },
+                "example": {
+
+                  "permission": ["Acessar relatórios", "Alterar relatórios"]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "cpf": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      },
+
+                      "role": {
+                        "type": "string"
+                      },
+                      "permission": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "timestamp"
+                      },
+                      "updated_at": {
+                        "type": "timestamp"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation fails"
+          },
+          "401": {
+            "description": "You do not have permission to access"
+          },
+          "403": {
+            "description": "Token not provided!"
+          },
+          "404": {
+            "description": "User does not found"
+          }
+        }
+      },
+
+      "delete": {
+        "tags": ["Users"],
+        "summary": "Deletar usuários",
+        "description": "Essa rota permite que o usuário Administrador delete um usuários.",
+
+        "responses": {
+          "200": {
+            "description": "User was deleted"
+          },
+          "401": {
+            "description": "You do not have permission to access"
+          },
+          "403": {
+            "description": "Token not provided!"
+          },
+          "404": {
+            "description": "User does not found"
+          }
+        }
+      }
+    }
+
+
+
+
+
+
+
+
+  },
+
+  "components": {
+    "schemas": {
+      "users": {
+        "type": "object",
+        "required": [
+          "cpf",
+          "password",
+          "role",
+          "permission"
+        ],
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "cpf": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "role": {
+            "type": "array"
+          },
+          "permission": {
+            "type": "string"
+          }
+        }
+      }
+
+
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter JWT Bearer Token **_only_**",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ]
+}
