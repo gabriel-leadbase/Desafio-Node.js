@@ -9,7 +9,13 @@ class UserController {
   }
 
   async show(req, res) {
-    return res.send('ok');
+    const user = await User.findByPk(req.params.id);
+
+    if (!user) {
+      return res.status(404).json({ error: 'User does not found' });
+    }
+
+    return res.json(user);
   }
 
   async store(req, res) {
