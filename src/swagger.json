@@ -148,6 +148,9 @@
           },
           "400": {
             "description": "Validation fails"
+          },
+          "403": {
+            "description": "CPF alrealdy registered"
           }
         }
       },

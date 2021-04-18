@@ -30,6 +30,12 @@ class UserController {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
+    const existentUser = await User.findOne({ where: { cpf: req.body.cpf } });
+
+    if (existentUser) {
+      return res.status(403).json({ error: 'CPF alrealdy registered' });
+    }
+
     const user = await User.create(req.body);
 
     return res.json(user);
