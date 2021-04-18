@@ -1,51 +1,58 @@
 # Desafio para desenvolvedor back-end
 
-Para realizar o desafio usei:
-- express
-- sequelize
-- postgres
-- docker
+Esse é o nosso desafio para a vaga de desenvolvedor back-end. Serão testadas as habilidades e qualidade de código ao transformar requisitos limitados em uma API Rest.
 
-## Como rodar o desafio
+Procuramos um desenvolvedor versátil para resolver os mais diversos problemas, que impactam tanto nos processos internos como nos negocios dos nossos clientes, utilizando conhecimento em tecnologias front-end como meio para isso. Sinta-se confortável com ambas responsabilidades e seja engajado com o que há de melhor no mercado e boas práticas para trabalhar com inovação, tecnologias modernas e emergentes.
 
-Após clonar o repositório será necessário criar um arquivo com o nome ```.env``` e dentro desse arquivo colocar as seguintes informações:
-```
-APP_SECRET="aadf8f9as0s"
 
-APP_URL="localhost:3333"
+### Qual perfil procuramos?
+- Perfil proativo, saber trabalhar em equipe , raciocínio lógico, responsabilidade e comprometimento são imprescindíveis para essa oportunidade;
+- Fácil adaptação em projetos experimentais e complexos;
+- Aprendizado rápido no uso de tecnologias de desenvolvimento de software;
+- Experiência em Desenvolvimento de software Web.
 
-DB_HOST="localhost"
-DB_USER="postgres"
-DB_PASS="golfarma"
-DB_NAME="golfarma"
-```
 
-Em seguida será necessário criar uma database no postgres, caso queira usar o Docker o comando é:
 
-```
-docker run --name golfarma -e POSTGRES_PASSWORD=golfarma -p 5432:5432 -d postgres
-```
+### Instruções para o desafio
 
-Assim o container do docker estará criado, porém ainda será preciso criar a database, para isso insira o comando:
+- **Fork** esse repositório e faça o desafio numa branch com o seu nome (exemplo: `nome-sobrenome`);
+- Assim que concluir o seu desafio, abra um **pull request** com suas alterações.
 
-```
-docker exec -it golfarma psql -U postgres --password 
-```
 
-Insira a senha ```golfarma``` e crie a database com o comando ```create database golfarma;```
+### Desafio
+- Montar um projeto em Node.js, com a função de fazer Autenticação e autorização de usuários. 
 
-Assim o seu banco de dados com o docker estará configurado para o projeto, insira ```\q``` para sair
+A seguir vou descrever a história de usuário da funcionalidade:
 
-Feito isso será necessário instalar as dependências do projeto com o comando :
+O processo se dá onde um usuário pode enviar seu CPF e uma senha para a API e realizar login na plataforma, recebendo assim um token de acesso contendo seus dados e sua role e suas permissões, feito login, existem dois casos:
+  1. se ele for administrador ele pode usar seu token para acessar uma rota para remover uma permissão (enviando o nome dessa permissão) ou adicionar uma permissão (enviando o nome dessa permissão).
+  2. se ele for vendedor não terá acesso a nenhuma rota.
 
-```npm install```
+Lembre de documentar as rotas no Postman e adicionar o export JSON ao projeto.
+Fique livre para montar token de acesso com o recurso/criptografia que desejar.
 
-Agora precisamos rodar as migration utilizando o sequelize com o comando:
 
-```npx sequelize db:migrate```
+### Escopo do desafio
+- Documentar todas suposições realizadas;
+- O desenvolvimento do back-end deve ser em Node.js;
+- Não é necessário submeter uma aplicação que cumpra cada um dos requisitos descritos, mas o que for submetido deve funcionar;
+- Informar em um arquivo INSTRUCOES.md o passo a passo necessário para rodar o projeto juntamente com o descritivo das funcionalidades que foram atentidas no desafio.
 
-Feito tudo isso já podemos rodar o nosso projeto com o comando:
 
-```npm run dev```
+### O que será avaliado
+- O código será avaliado seguindo os seguintes critérios: manutenabilidade, clareza e limpeza de código; resultado funcional; entre outros fatores;
+- O histórico no `git` também será avaliado;
+- Não esqueça de documentar o processo necessário para rodar a aplicação;
+- Se necessário explique as decisões técnicas tomadas, as escolhas por bibliotecas e ferrramentas, o uso de patterns etc.
 
-Com o servidor rodando é possível acessar a documentação no navegador a com a url *http://localhost:3333/api-docs*
+
+### Diferenciais
+- Tratamento de erros
+- Docker
+- Boa documentação de código;
+- Testes do código.
+
+---
+Em caso de dúvidas, envie um email para [gabriel@leadbase.com.br](mailto:gabriel@leadbase.com.br).
+
+**Até breve**
