@@ -36,7 +36,23 @@ class UserController {
   }
 
   async update(req, res) {
-    return res.send('ok');
+    const schema = Yup.object().shape({
+      permission: Yup.string().required(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Validation fails' });
+    }
+
+    const user = await User.findByPk(req.params.id);
+
+    if (!user) {
+      return res.status(404).json({ error: 'User does not found' });
+    }
+
+    const updatedUser = await user.update(req.body);
+
+    return res.json(updatedUser);
   }
 
   async delete(req, res) {
