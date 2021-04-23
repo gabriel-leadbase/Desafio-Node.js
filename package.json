@@ -1,0 +1,35 @@
+{
+  "name": "desafio-node",
+  "version": "1.0.0",
+  "description": "Esse é o nosso desafio para a vaga de desenvolvedor back-end. Serão testadas as habilidades e qualidade de código ao transformar requisitos limitados em uma API Rest.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/server.js"
+  },
+  "dependencies": {
+    "@types/uuid": "^8.3.0",
+    "body-parse": "^0.1.0",
+    "debug": "^4.3.1",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.3.0",
+    "mongoose": "^5.12.5",
+    "reflect-metadata": "^0.1.13",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.41"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TainaIsabela/Desafio-Node.js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TainaIsabela/Desafio-Node.js/issues"
+  },
+  "homepage": "https://github.com/TainaIsabela/Desafio-Node.js#readme"
+}
