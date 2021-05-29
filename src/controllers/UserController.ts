@@ -13,8 +13,10 @@ export class UserController {
 
       return response.status(201).json(tokenAndUserData);
     } catch (error) {
-      console.log(error);
-      return response.status(500).send();
+      console.log(`Error >> ${error}`);
+      return response.status(400).json({
+        message: 'Unexpected error',
+      });
     }
   }
 }
