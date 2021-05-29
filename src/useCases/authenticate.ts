@@ -42,8 +42,6 @@ export async function authenticate({
     subject: user.id,
   });
 
-  delete user.password;
-
   return {
     token,
     user,
