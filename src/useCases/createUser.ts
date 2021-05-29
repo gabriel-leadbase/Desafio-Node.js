@@ -17,8 +17,6 @@ export async function createUser({
     throw new Error('Invalid CPF number.');
   }
 
-  cpf.format(cpfNumber);
-
   const cpfAlreadyExists = await prisma.user.findFirst({
     where: {
       cpf: cpfNumber,
