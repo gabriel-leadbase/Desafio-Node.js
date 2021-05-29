@@ -13,6 +13,7 @@ export class UserController {
 
       return response.status(201).json(tokenAndUserData);
     } catch (error) {
+      console.log(error);
       return response.status(500).send();
     }
   }
