@@ -1,0 +1,38 @@
+{
+  "name": "Desafio-Node.js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/gabrielsilvares/Desafio-Node.js.git",
+  "author": "Gabriel Silvares <gabrielsrcode@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsnd src/server.ts ",
+    "typeorm": "tsnd ./node_modules/typeorm/cli.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cpf-cnpj-validator": "^1.0.3",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.3.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.25"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/express": "^4.17.7",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "prettier": "^2.3.0",
+    "ts-node-dev": "^1.0.0-pre.56",
+    "typescript": "^3.9.7"
+  }
+}
