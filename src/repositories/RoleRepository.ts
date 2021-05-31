@@ -1,5 +1,5 @@
-import { Repository, EntityRepository } from "typeorm";
-import Role from "../models/Role";
+import { Repository, EntityRepository } from 'typeorm';
+import Role from '../models/Role';
 
 @EntityRepository(Role)
 class RoleRepository extends Repository<Role> {}

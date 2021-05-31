@@ -3,11 +3,11 @@ import {
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-} from "typeorm";
+} from 'typeorm';
 
-@Entity("permissions")
+@Entity('permissions')
 class Permission {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()

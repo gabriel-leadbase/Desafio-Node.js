@@ -1,5 +1,5 @@
-import { getCustomRepository } from "typeorm";
-import PermissionRepository from "../repositories/PermissionRepository";
+import { getCustomRepository } from 'typeorm';
+import PermissionRepository from '../repositories/PermissionRepository';
 
 interface Request {
   name: string;
