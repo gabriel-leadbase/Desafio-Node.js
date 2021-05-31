@@ -18,6 +18,6 @@
   ],
   "rules": {
       "prettier/prettier": "error",
-      "camelcase": false,
+      "camelcase":  "off",
   }
 }
