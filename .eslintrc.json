@@ -17,6 +17,7 @@
       "prettier"
   ],
   "rules": {
-      "prettier/prettier": "error"
+      "prettier/prettier": "error",
+      "camelcase": false,
   }
 }
