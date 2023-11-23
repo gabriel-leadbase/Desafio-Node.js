@@ -69,30 +69,34 @@ Como que eu dou permissão para um usuário?
 ### Dependências
 
 - Orm
-[] prisma -D
-[] @prisma/client
+[X] prisma -D
+[X] @prisma/client
 
 - Linguagem
-[] typescript tsx tsup @types/node -D
+[X] typescript tsx tsup -D
+[X] @types/node 
 
 - Melhoras minhas tipagens
-[] zod
+[X] zod
 
 - Encryptar senha
-[] bcryptjs @types/bcryptjs
+[X] bcryptjs @types/bcryptjs
 
 - Framework
-[] fastify
+[X] fastify
 
 - Auth
-[] @fastify/jwt
+[X] @fastify/jwt
 
 - Cookie
-[] @fastify/cookie
+[X] @fastify/cookie
 
 - Testes
-[] vistest vitest-tsconfig-paths -D
-[] supertest
+[X] vitest vitest-tsconfig-paths -D
+[X] supertest
+
+- Lint
+[X] eslint -D
 
 ### Container Docker
 
