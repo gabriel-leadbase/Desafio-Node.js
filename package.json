@@ -1,0 +1,20 @@
+{
+  "name": "desafio-node",
+  "version": "1.0.0",
+  "description": "Esse é o nosso desafio para a vaga de desenvolvedor back-end. Serão testadas as habilidades e qualidade de código ao transformar requisitos limitados em uma API Rest.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasnather/Desafio-Node.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucasnather/Desafio-Node.js/issues"
+  },
+  "homepage": "https://github.com/lucasnather/Desafio-Node.js#readme"
+}
