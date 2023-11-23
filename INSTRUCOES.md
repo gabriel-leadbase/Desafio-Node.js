@@ -102,4 +102,4 @@ Como que eu dou permissão para um usuário?
 
 - Bitnami/Postgres
 
-[] docker run --name leadbase -e POSTGRESQL_USERNAME=admin -e POSTGRESQL_PASSWORD=admin -e POSTGRESQL_DATABASE=leadbase -p 5432:5432 bitnami/postgresql
+[X] docker run --name leadbase -e POSTGRESQL_USERNAME=admin -e POSTGRESQL_PASSWORD=admin -e POSTGRESQL_DATABASE=leadbase -p 5432:5432 bitnami/postgresql

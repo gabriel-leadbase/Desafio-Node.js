@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  leadbase:
+    image: 'bitnami/postgresql'
+    ports:
+      - '5432'
+    environment:
+      - POSTGRESQL_USERNAME=admin
+      - POSTGRESQL_PASSWORD=admin
+      - POSTGRESQL_DATABASE=leadbase
