@@ -2,13 +2,13 @@
 
 [X] Deve ser possível cadastrar usuário
 [X] Deve ser possível autenticar usuário
-[] Deve ser possível cadastrar permissão
+[X] Deve ser possível cadastrar permissão
 [] Deve ser possível atualizar permissão 
 [] Deve ser possível apagar permissão
 [] Deve ser possível dar permissão a um usuário
 [] Deve ser possível remover permissão a um usuário
 [] Deve ser possível atualizar usuário
-[] Deve ser possível cadastrar produto
+[X] Deve ser possível cadastrar produto
 [] Deve ser possível atualizar produto
 [] Deve ser possível listar produto
 [] Deve ser possível deletar produto
@@ -106,3 +106,8 @@ Como que eu dou permissão para um usuário?
 - Bitnami/Postgres
 
 [X] docker run --name leadbase -e POSTGRESQL_USERNAME=admin -e POSTGRESQL_PASSWORD=admin -e POSTGRESQL_DATABASE=leadbase -p 5432:5432 bitnami/postgresql
+
+
+### Meus desafios
+
+Durante o desenvolvimento do código acabei caindo em um erro que nunca tinha visto, quando foi instalado a versao 4.24 do fastify. Quando eu criava meu `{$ const app = fastify()}` ou criava o meu tipo com FastifyInstance, por algum motivo o tipo não era reconhecido e não conseguia usar nenhum método http.
