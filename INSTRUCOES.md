@@ -98,6 +98,9 @@ Como que eu dou permissão para um usuário?
 - Lint
 [X] eslint -D
 
+- Env
+[X] dotenv
+
 ### Container Docker
 
 - Bitnami/Postgres
