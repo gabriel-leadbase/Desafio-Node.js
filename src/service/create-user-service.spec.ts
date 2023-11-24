@@ -6,7 +6,7 @@ let userRepository: InMemoryUserRepository
 let sut: CreateUserService
 
 describe('Create User Service', () => {
-	beforeAll(() => {
+	beforeEach(() => {
 		userRepository = new InMemoryUserRepository()
 		sut = new CreateUserService(userRepository)
 	})
