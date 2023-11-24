@@ -41,7 +41,7 @@ model Product {
 
 model Permissions {
   id         String    @id @default(uuid())
-  name       String
+  name       String    @unique
   created_at DateTime  @default(now())
   updated_at DateTime?
   User       User?     @relation(fields: [user_id], references: [id])

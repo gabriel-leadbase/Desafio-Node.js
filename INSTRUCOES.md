@@ -1,24 +1,24 @@
 ### Requesitos funcionais
 
-[] Deve ser possível cadastrar usuário
-[] Deve ser possível autenticar usuário
+[X] Deve ser possível cadastrar usuário
+[X] Deve ser possível autenticar usuário
 [] Deve ser possível cadastrar permissão
-[] Deve ser possível  atualizar permissão 
-[] Deve ser possível  apagar permissão
+[] Deve ser possível atualizar permissão 
+[] Deve ser possível apagar permissão
 [] Deve ser possível dar permissão a um usuário
 [] Deve ser possível remover permissão a um usuário
 [] Deve ser possível atualizar usuário
 [] Deve ser possível cadastrar produto
-[] Deve ser possível  atualizar produto
-[] Deve ser possível  listar produto
+[] Deve ser possível atualizar produto
+[] Deve ser possível listar produto
 [] Deve ser possível deletar produto
 
 ### Requesitos não funcionais
 
-[] encryptar a senha
+[X] encryptar a senha
 [] dar um token de acessao para o usuário
 [] dar um refresh token para o usuário
-[] os dados vão ser persistidos com o banco de dados Postgres
+[X] os dados vão ser persistidos com o banco de dados Postgres
 
 ### Regras de negócio
 
@@ -30,7 +30,7 @@
 
 ### Entidades
 
-[] User
+[X] User
     - Id / único
     - Name / No mínimo 3 caracteres
     - Cpf / Não aceitará caracteres especiais, sendo no formato XXXXXXXXXXX 
@@ -38,14 +38,14 @@
     - Permissions / relaçao, um usuário pode ter várias permissões, opcional
     - Password / Mínimo 8 caracteres
     - CreatedAt
-[] Product
+[X] Product
     - Id / único
     - Name
     - Valor 
     - Description
     - CreatedAt
     - UpdatedAt
-[] Permissions - apenas Admins podem ter acesso
+[X] Permissions - apenas Admins podem ter acesso
     - Id
     - Name
     - CreatedAt
