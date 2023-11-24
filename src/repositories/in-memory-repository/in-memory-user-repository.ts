@@ -1,5 +1,6 @@
 import { IUser } from '@/interface/IUser'
 import { Prisma, User } from '@prisma/client'
+import { hash } from 'bcryptjs'
 import { randomUUID } from 'node:crypto'
 
 export class InMemoryUserRepository implements IUser {
@@ -11,7 +12,7 @@ export class InMemoryUserRepository implements IUser {
 			id: data.id ?? randomUUID(),
 			cpf: data.cpf,
 			name: data.name,
-			password: data.password,
+			password: await hash(data.password, 6),
 			role: data.role ?? 'VENDEDOR',
 			created_at: new Date(),
 			updated_at: null

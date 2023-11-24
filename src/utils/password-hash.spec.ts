@@ -26,6 +26,4 @@ describe('Password Hash', () => {
 
 		expect(isHashed).toBeFalsy()
 	})
-
-
 })
