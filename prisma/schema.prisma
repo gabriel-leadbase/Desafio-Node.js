@@ -18,8 +18,8 @@ enum Role {
 model User {
   id           String        @id @default(uuid())
   name         String
-  cpf          String
-  role         Role
+  cpf          String        @unique
+  role         Role          @default(VENDEDOR)
   password     String
   permissionId Permissions[]
   created_at   DateTime      @default(now())
