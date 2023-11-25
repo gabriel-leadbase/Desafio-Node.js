@@ -7,7 +7,7 @@ interface CreateUserRequest {
     cpf: string,
     role?: 'ADMIN' | 'VENDEDOR',
     password: string,
-    permissionId: Prisma.PermissionsUncheckedCreateNestedManyWithoutUserInput | undefined
+    permissionId: Prisma.PermissionsCreateNestedOneWithoutUserInput | undefined
 }
 
 interface CreateUserResponse {

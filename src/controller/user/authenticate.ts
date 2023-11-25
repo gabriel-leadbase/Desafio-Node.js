@@ -23,7 +23,8 @@ export async function authenticate(request: FastifyRequest, reply: FastifyReply)
 		})
 
 		const token = await reply.jwtSign({
-			role: user.role
+			role: user.role,
+			permissions: user.permissions_id
 		}, {
 			sub: user.id,
 			expiresIn: '10m',
