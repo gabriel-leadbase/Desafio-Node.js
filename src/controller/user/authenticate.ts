@@ -30,6 +30,21 @@ export async function authenticate(request: FastifyRequest, reply: FastifyReply)
 			expiresIn: '10m',
 		})
 
+		const refreshToken = await reply.jwtSign({
+			role: user.role,
+			permissions: user.permissions_id
+		}, {
+			sub: user.id,
+			expiresIn: '3d',
+		})
+
+		reply.setCookie('refresh-token', refreshToken, {
+			path: '/',
+			httpOnly: true,
+			secure: true,
+			sameSite: true
+		})
+
 		return reply.status(200).send({
 			token
 		})
