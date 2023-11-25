@@ -92,7 +92,7 @@ Como que eu dou permissão para um usuário?
 [X] @fastify/cookie
 
 - Testes
-[X] vitest vitest-tsconfig-paths -D
+[X] vitest vite-tsconfig-paths -D
 [X] supertest
 
 - Lint
@@ -110,4 +110,4 @@ Como que eu dou permissão para um usuário?
 
 ### Meus desafios
 
-Durante o desenvolvimento do código acabei caindo em um erro que nunca tinha visto, quando foi instalado a versao 4.24 do fastify. Quando eu criava meu `{$ const app = fastify()}` ou criava o meu tipo com FastifyInstance, por algum motivo o tipo não era reconhecido e não conseguia usar nenhum método http.
+Durante o desenvolvimento do código acabei caindo em um erro que nunca tinha visto, quando foi instalado a versao 4.24 do fastify. Quando eu criava meu `const app = fastify()` ou criava o meu tipo com FastifyInstance, por algum motivo o tipo não era reconhecido e não conseguia usar nenhum método http.
