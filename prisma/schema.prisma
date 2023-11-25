@@ -16,14 +16,15 @@ enum Role {
 }
 
 model User {
-  id           String        @id @default(uuid())
-  name         String
-  cpf          String        @unique
-  role         Role          @default(VENDEDOR)
-  password     String
-  permissionId Permissions[]
-  created_at   DateTime      @default(now())
-  updated_at   DateTime?
+  id             String      @id @default(uuid())
+  name           String
+  cpf            String      @unique
+  role           Role        @default(VENDEDOR)
+  password       String
+  permissionId   Permissions @relation(fields: [permissions_id], references: [id])
+  created_at     DateTime    @default(now())
+  updated_at     DateTime?
+  permissions_id String
 
   @@map("users")
 }
@@ -44,8 +45,7 @@ model Permissions {
   name       String    @unique
   created_at DateTime  @default(now())
   updated_at DateTime?
-  User       User?     @relation(fields: [user_id], references: [id])
-  user_id    String?
+  User       User[]
 
   @@map("permissions")
 }
