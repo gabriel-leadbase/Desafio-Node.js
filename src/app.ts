@@ -5,6 +5,7 @@ import { userRoute } from './routes/user-route'
 import { env } from './env/env'
 import { permissionRoute } from './routes/permission-route'
 import { ZodError } from 'zod'
+import { productRoute } from './routes/product-route'
 
 export const app = fastify()
 
@@ -24,6 +25,10 @@ app.register(userRoute, {
 
 app.register(permissionRoute, {
 	prefix: '/permission'
+})
+
+app.register(productRoute, {
+	prefix: '/product'
 })
 
 app.setErrorHandler((error, _, reply) => {
