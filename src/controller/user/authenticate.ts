@@ -24,16 +24,20 @@ export async function authenticate(request: FastifyRequest, reply: FastifyReply)
 			role: user.role,
 			permissions: user.permissions_id
 		}, {
-			sub: user.id,
-			expiresIn: '10m',
+			sign: {
+				sub: user.id,
+				expiresIn: '10m',
+			}
 		})
 
 		const refreshToken = await reply.jwtSign({
 			role: user.role,
 			permissions: user.permissions_id
 		}, {
-			sub: user.id,
-			expiresIn: '3d',
+			sign: {
+				sub: user.id,
+				expiresIn: '3d',
+			}
 		})
 
 		reply.setCookie('refresh-token', refreshToken, {

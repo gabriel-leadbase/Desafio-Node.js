@@ -1,11 +1,11 @@
 import '@fastify/jwt'
 
 declare module '@fastify/jwt' {
-	interface FastifyJWT { // payload type is used for signing and verifying
+	interface FastifyJWT { 
 		user: {
 			sub: string,
             role: string,
-			permissions_id: string
+			permissions: string
 		} // user type is return type of `request.user` object
     }
 }

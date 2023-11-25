@@ -32,7 +32,7 @@ app.setErrorHandler((error, _, reply) => {
 		problemas: error.format()
 	})
 
-	return reply.status(500).send({
+	reply.status(500).send({
 		message: 'Erro interno do servidor'
 	})
 })
