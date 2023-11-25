@@ -1,6 +1,5 @@
 import { UserAlreadyExistsError } from '@/error/user-already-exists-error'
-import { UserRepository } from '@/repositories/prisma/user-repository'
-import { CreateUserService } from '@/service/create-user-service'
+import { makeCreateUser } from '@/factory/make-create-user'
 import { PasswordHash } from '@/utils/password-hash'
 import { FastifyReply, FastifyRequest} from 'fastify'
 import { z } from 'zod'
@@ -19,8 +18,7 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
 	const passwordHash = new PasswordHash()
 	const hashed = await passwordHash.hashPassword(password)
 
-	const userRepository = new UserRepository()
-	const createUserService = new CreateUserService(userRepository)
+	const createUserService = makeCreateUser()
 
 	try {
 		await createUserService.execute({

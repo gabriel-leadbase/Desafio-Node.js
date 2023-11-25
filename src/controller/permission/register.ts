@@ -1,6 +1,5 @@
 import { PermissionAlreadyExistsError } from '@/error/permission-already-exists-error'
-import { PermissionRepository } from '@/repositories/prisma/permission-repository'
-import { CreatePermissionService } from '@/service/create-permission-service'
+import { makeCreatePermission } from '@/factory/make-create-permission'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
@@ -12,8 +11,7 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
 
 	const { name } = getBodySchema.parse(request.body)
 
-	const permissionRepository = new PermissionRepository()
-	const createPermissionService = new CreatePermissionService(permissionRepository)
+	const createPermissionService = makeCreatePermission()
 
 	try {
 		await createPermissionService.execute({
