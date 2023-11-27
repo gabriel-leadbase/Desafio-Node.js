@@ -4,7 +4,7 @@ import { FastifyInstance } from 'fastify'
 
 
 export async function productRoute(app: FastifyInstance) {
-	app.addHook('onRequest', verifyToken('ADMIN'))
+	app.addHook('onRequest', verifyToken('ADMIN', 'produto'))
 
 	app.post('/', register)
 }

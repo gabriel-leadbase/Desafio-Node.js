@@ -1,7 +1,6 @@
 import { InvalidCredentialsError } from '@/error/invalid-credentials-error'
-import { IUser } from '@/interface/IUser'
+import { IUser, UserProps } from '@/interface/IUser'
 import { PasswordHash } from '@/utils/password-hash'
-import { User } from '@prisma/client'
 
 interface AuthenticateUserRequest {
     cpf: string,
@@ -9,7 +8,7 @@ interface AuthenticateUserRequest {
 }
 
 interface AuthenticateUserResponse {
-    user: User
+    user: UserProps
 }
 
 export class AuthenticateUserService {
@@ -27,7 +26,7 @@ export class AuthenticateUserService {
 		if(!isCorrectlyPassword) throw new InvalidCredentialsError()
 
 		return {
-			user
+			user,
 		}
 	}
 }

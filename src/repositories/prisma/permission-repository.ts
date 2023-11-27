@@ -1,5 +1,5 @@
 import { prisma } from '@/database/prisma'
-import { IPermission, PermissionProps } from '@/interface/IPermission'
+import { IPermission } from '@/interface/IPermission'
 import { Prisma } from '@prisma/client'
 
 export class PermissionRepository implements IPermission {
@@ -24,17 +24,10 @@ export class PermissionRepository implements IPermission {
 		return permission
 	}
 
-	async findByUserIdAndId(data: PermissionProps){
+	async findManyUserId(userId: string) {
 		const permission = await prisma.permissions.findMany({
 			where: {
-				AND: [
-					{
-						id: data.id
-					},
-					{
-						user_id: data.userId
-					}
-				]
+				user_id: userId
 			}
 		})
 

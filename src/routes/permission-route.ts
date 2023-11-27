@@ -4,7 +4,7 @@ import { FastifyInstance } from 'fastify'
 
 
 export async function permissionRoute(app: FastifyInstance) {
-	app.addHook('onRequest', verifyToken('ADMIN'))
+	app.addHook('onRequest', verifyToken('ADMIN', 'permission'))
 
 	app.post('/', register)
 }

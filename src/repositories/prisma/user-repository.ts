@@ -5,23 +5,29 @@ import { Prisma } from '@prisma/client'
 export class UserRepository implements IUser {
     
 	async create(data: Prisma.UserCreateInput) {
-		const users = await prisma.user.create({
+		const user = await prisma.user.create({
 			data
 		})
 
-		return users
+		return user
 	}
     
 	async findByCpf(cpf: string) {
-		const users = await prisma.user.findUnique({
+		const user = await prisma.user.findUnique({
 			where: {
 				cpf
+			},
+			include: {
+				permissionId: {
+					select: {
+						name: true
+					}
+				}
 			}
 		})
 
-		if(users === null) return null
+		if(user === null) return null
 
-		return users
+		return user
 	}
-    
 }

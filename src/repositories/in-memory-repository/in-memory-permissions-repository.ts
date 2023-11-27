@@ -1,4 +1,4 @@
-import { IPermission, PermissionProps } from '@/interface/IPermission'
+import { IPermission } from '@/interface/IPermission'
 import { Permissions, Prisma } from '@prisma/client'
 import { randomUUID } from 'node:crypto'
 
@@ -28,15 +28,12 @@ export class InMemoryPermissionsRepository implements IPermission {
 		return permission
 	}
 
-	async findByUserIdAndId({id, user_id}: PermissionProps) {
-		const permission = this.permissions.find(permiss => {
-			return permiss.id == id && permiss.user_id == user_id
-		})
+	async findManyUserId(userId: string) {
+		const permission = this.permissions.find(permiss => permiss.user_id === userId)
 
 		if(!permission) return null
 
 		return [permission]
 	}
-
     
 }

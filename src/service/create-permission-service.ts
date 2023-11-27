@@ -16,6 +16,7 @@ export class CreatePermissionService {
 
 	async execute(data: CreatePermissionRequest): Promise<CreatePermissionResponse> {
 		const permissionExists = await this.permissionRepository.findByName(data.name)
+		console.log(permissionExists)
 
 		if(permissionExists != null) throw new PermissionAlreadyExistsError()
 

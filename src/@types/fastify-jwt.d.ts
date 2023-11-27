@@ -5,6 +5,9 @@ declare module '@fastify/jwt' {
 		user: {
 			sub: string,
             role: string,
+			permissions: {
+				name: string
+			}[]
 		} // user type is return type of `request.user` object
     }
 }
