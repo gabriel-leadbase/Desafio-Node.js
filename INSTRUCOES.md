@@ -16,17 +16,17 @@
 ### Requesitos não funcionais
 
 [X] encryptar a senha
-[] dar um token de acessao para o usuário
-[] dar um refresh token para o usuário
+[x] dar um token de acessao para o usuário
+[x] dar um refresh token para o usuário
 [X] os dados vão ser persistidos com o banco de dados Postgres
 
 ### Regras de negócio
 
-[] apenas um admin ou quem tem permissão pode acessar as rotas
+[x] apenas um admin ou quem tem permissão pode acessar as rotas
 [] o cpf não pode conter caracteres especiais
-[] a senha deve conter no mínimo 8 caracteres
-[] todos os campos são obrigatórios para criar um usuário
-[] não pode cadastrar duas pessoas com o mesmo cpf
+[x] a senha deve conter no mínimo 8 caracteres
+[x] todos os campos são obrigatórios para criar um usuário
+[x] não pode cadastrar duas pessoas com o mesmo cpf
 
 ### Entidades
 

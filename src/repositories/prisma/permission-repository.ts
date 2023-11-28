@@ -35,4 +35,15 @@ export class PermissionRepository implements IPermission {
 
 		return permission
 	}
+
+	async update(data: Prisma.PermissionsUncheckedUpdateWithoutUserInput, id: string) {
+		const permission = await prisma.permissions.update({
+			data: {
+
+			},
+			where: {
+				id
+			}
+		})
+	}
 }
